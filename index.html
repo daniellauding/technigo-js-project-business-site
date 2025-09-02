@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Drooly Bento Recipes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="site" id="top">
+
+  <!-- =================== MODALS FIRST (prevents hash jump) =================== -->
+  <!-- r1–r12 -->
+  <section id="m-r1" class="modal" aria-labelledby="m-r1-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r1/960/600" alt="Teriyaki Chicken" />
+      <div class="modal__body">
+        <h2 id="m-r1-title">Teriyaki Chicken</h2>
+        <p>One-pan · 15 min · ≤10 ingredients</p>
+        <h3>Ingredients</h3>
+        <ul>
+          <li>Chicken thighs (500g)</li><li>Soy sauce</li><li>Mirin</li>
+          <li>Sugar</li><li>Garlic</li><li>Ginger</li>
+          <li>Sesame seeds & spring onion</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r2" class="modal" aria-labelledby="m-r2-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r2/960/600" alt="Sesame Soba" />
+      <div class="modal__body">
+        <h2 id="m-r2-title">Sesame Soba</h2>
+        <p>Vegan · 10 min · ≤10 ingredients</p>
+        <h3>Ingredients</h3>
+        <ul>
+          <li>Soba noodles</li><li>Sesame oil</li><li>Soy sauce</li>
+          <li>Rice vinegar</li><li>Sesame seeds</li><li>Cucumber & spring onion</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r3" class="modal" aria-labelledby="m-r3-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r3/960/600" alt="Crispy Tofu" />
+      <div class="modal__body">
+        <h2 id="m-r3-title">Crispy Tofu</h2>
+        <p>Airfryer · 20 min · ≤10 ingredients</p>
+        <h3>Ingredients</h3>
+        <ul><li>Firm tofu</li><li>Cornstarch</li><li>Garlic powder</li><li>Soy sauce</li><li>Neutral oil</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r4" class="modal" aria-labelledby="m-r4-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r4/960/600" alt="Onigiri" />
+      <div class="modal__body">
+        <h2 id="m-r4-title">Onigiri</h2>
+        <p>Rice + filling · ultra simple</p>
+        <h3>Ingredients</h3>
+        <ul><li>Sushi rice</li><li>Nori</li><li>Tuna mayo / umeboshi</li><li>Salt</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r5" class="modal" aria-labelledby="m-r5-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r5/960/600" alt="Ginger Beef" />
+      <div class="modal__body">
+        <h2 id="m-r5-title">Ginger Beef</h2>
+        <p>25 min · 8 ingredients</p>
+        <h3>Ingredients</h3>
+        <ul><li>Beef strips</li><li>Ginger</li><li>Garlic</li><li>Soy</li><li>Sugar</li><li>Cornstarch</li><li>Oil</li><li>Scallions</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r6" class="modal" aria-labelledby="m-r6-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r6/960/600" alt="Cucumber Salad" />
+      <div class="modal__body">
+        <h2 id="m-r6-title">Cucumber Salad</h2>
+        <p>5 min · fresh</p>
+        <h3>Ingredients</h3>
+        <ul><li>Cucumber</li><li>Rice vinegar</li><li>Soy</li><li>Sesame oil</li><li>Sesame seeds</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r7" class="modal" aria-labelledby="m-r7-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r7/960/600" alt="Egg Roll Omelette" />
+      <div class="modal__body">
+        <h2 id="m-r7-title">Egg Roll Omelette</h2>
+        <p>12 min · 4 ingredients</p>
+        <h3>Ingredients</h3>
+        <ul><li>Eggs</li><li>Soy</li><li>Sugar</li><li>Oil</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r8" class="modal" aria-labelledby="m-r8-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r8/960/600" alt="Miso Veggies" />
+      <div class="modal__body">
+        <h2 id="m-r8-title">Miso Veggies</h2>
+        <p>Sheet-pan · 18 min</p>
+        <h3>Ingredients</h3>
+        <ul><li>Mixed veg</li><li>Miso</li><li>Soy</li><li>Oil</li><li>Honey (opt.)</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r9" class="modal" aria-labelledby="m-r9-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r9/960/600" alt="Yakitori Skewers" />
+      <div class="modal__body">
+        <h2 id="m-r9-title">Yakitori Skewers</h2>
+        <p>20 min · One-pan</p>
+        <h3>Ingredients</h3>
+        <ul><li>Chicken thigh</li><li>Soy</li><li>Mirin</li><li>Sugar</li><li>Spring onion</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r10" class="modal" aria-labelledby="m-r10-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r10/960/600" alt="Katsu Curry" />
+      <div class="modal__body">
+        <h2 id="m-r10-title">Katsu Curry</h2>
+        <p>30 min · comfort</p>
+        <h3>Ingredients</h3>
+        <ul><li>Chicken cutlet</li><li>Panko</li><li>Curry roux</li><li>Onion</li><li>Rice</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r11" class="modal" aria-labelledby="m-r11-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r11/960/600" alt="Edamame Beans" />
+      <div class="modal__body">
+        <h2 id="m-r11-title">Edamame Beans</h2>
+        <p>Snack · 5 min</p>
+        <h3>Ingredients</h3>
+        <ul><li>Edamame</li><li>Sea salt</li><li>Chili flakes (opt.)</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="m-r12" class="modal" aria-labelledby="m-r12-title" role="dialog" aria-modal="true">
+    <article class="modal__card">
+      <a class="modal__close" href="#grid" aria-label="Close">×</a>
+      <img src="https://picsum.photos/seed/r12/960/600" alt="Chicken Karaage" />
+      <div class="modal__body">
+        <h2 id="m-r12-title">Chicken Karaage</h2>
+        <p>Crispy · 25 min</p>
+        <h3>Ingredients</h3>
+        <ul><li>Chicken thigh</li><li>Soy</li><li>Ginger</li><li>Garlic</li><li>Potato starch</li></ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- Shared backdrop: clicking it closes (links to #grid) -->
+  <a class="modal__scrim" href="#grid" aria-label="Close modal"></a>
+
+  <!-- =================== MAIN SITE =================== -->
+  <header class="site__header container">
+    <a class="logo" href="#top">🍱 Drooly</a>
+
+    <!-- CSS-only Shopping List dropdown -->
+    <details class="shop" role="list">
+      <summary class="shop__summary">🛒 Shopping List</summary>
+      <div class="shop__panel" role="group" aria-label="Shopping list">
+        <!-- Tip: these mirror ingredients in the modals -->
+        <div class="shop__col">
+          <h4><a href="#m-r1">Teriyaki Chicken</a></h4>
+          <label><input type="checkbox"> Chicken thighs</label>
+          <label><input type="checkbox"> Soy sauce</label>
+          <label><input type="checkbox"> Mirin</label>
+          <label><input type="checkbox"> Sugar</label>
+          <label><input type="checkbox"> Garlic, Ginger</label>
+          <label><input type="checkbox"> Sesame seeds, Spring onion</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r2">Sesame Soba</a></h4>
+          <label><input type="checkbox"> Soba noodles</label>
+          <label><input type="checkbox"> Sesame oil</label>
+          <label><input type="checkbox"> Soy sauce</label>
+          <label><input type="checkbox"> Rice vinegar</label>
+          <label><input type="checkbox"> Sesame seeds</label>
+          <label><input type="checkbox"> Cucumber, Spring onion</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r3">Crispy Tofu</a></h4>
+          <label><input type="checkbox"> Firm tofu</label>
+          <label><input type="checkbox"> Cornstarch</label>
+          <label><input type="checkbox"> Garlic powder</label>
+          <label><input type="checkbox"> Soy sauce</label>
+          <label><input type="checkbox"> Neutral oil</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r4">Onigiri</a></h4>
+          <label><input type="checkbox"> Sushi rice</label>
+          <label><input type="checkbox"> Nori</label>
+          <label><input type="checkbox"> Tuna mayo / Umeboshi</label>
+          <label><input type="checkbox"> Salt</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r5">Ginger Beef</a></h4>
+          <label><input type="checkbox"> Beef strips</label>
+          <label><input type="checkbox"> Ginger, Garlic</label>
+          <label><input type="checkbox"> Soy, Sugar</label>
+          <label><input type="checkbox"> Cornstarch, Oil</label>
+          <label><input type="checkbox"> Scallions</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r6">Cucumber Salad</a></h4>
+          <label><input type="checkbox"> Cucumber</label>
+          <label><input type="checkbox"> Rice vinegar</label>
+          <label><input type="checkbox"> Soy</label>
+          <label><input type="checkbox"> Sesame oil</label>
+          <label><input type="checkbox"> Sesame seeds</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r7">Egg Roll Omelette</a></h4>
+          <label><input type="checkbox"> Eggs</label>
+          <label><input type="checkbox"> Soy</label>
+          <label><input type="checkbox"> Sugar</label>
+          <label><input type="checkbox"> Oil</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r8">Miso Veggies</a></h4>
+          <label><input type="checkbox"> Mixed veg</label>
+          <label><input type="checkbox"> Miso</label>
+          <label><input type="checkbox"> Soy</label>
+          <label><input type="checkbox"> Oil</label>
+          <label><input type="checkbox"> Honey (opt.)</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r9">Yakitori Skewers</a></h4>
+          <label><input type="checkbox"> Chicken thigh</label>
+          <label><input type="checkbox"> Soy, Mirin, Sugar</label>
+          <label><input type="checkbox"> Spring onion</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r10">Katsu Curry</a></h4>
+          <label><input type="checkbox"> Chicken cutlet</label>
+          <label><input type="checkbox"> Panko</label>
+          <label><input type="checkbox"> Curry roux</label>
+          <label><input type="checkbox"> Onion</label>
+          <label><input type="checkbox"> Rice</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r11">Edamame Beans</a></h4>
+          <label><input type="checkbox"> Edamame</label>
+          <label><input type="checkbox"> Sea salt</label>
+          <label><input type="checkbox"> Chili flakes (opt.)</label>
+        </div>
+        <div class="shop__col">
+          <h4><a href="#m-r12">Chicken Karaage</a></h4>
+          <label><input type="checkbox"> Chicken thigh</label>
+          <label><input type="checkbox"> Soy</label>
+          <label><input type="checkbox"> Ginger, Garlic</label>
+          <label><input type="checkbox"> Potato starch</label>
+        </div>
+      </div>
+    </details>
+
+    <!-- Desktop-only nav -->
+    <nav class="nav nav--desktop" aria-label="Primary">
+      <a href="#featured">Featured</a>
+      <a href="#filters">Filters</a>
+      <a href="#grid">Recipes</a>
+    </nav>
+  </header>
+
+  <main class="site__main">
+
+    <!-- Hero (contained) -->
+    <section class="hero container">
+      <h1>Easy bento-friendly recipes</h1>
+      <p>One-pan, ≤10 ingredients. Click a card to view; click × or the backdrop to close.</p>
+    </section>
+
+    <!-- Featured (full-bleed marquee with contained heading) -->
+    <section id="featured" class="featured">
+      <div class="container section__head">
+        <h2>Featured</h2>
+        <p class="muted">Popular picks — auto-scrolling preview</p>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="track">
+          <a class="feat" href="#m-r2"><img src="https://picsum.photos/seed/r2/640/400" alt="" /><span>Sesame Soba</span></a>
+          <a class="feat" href="#m-r1"><img src="https://picsum.photos/seed/r1/640/400" alt="" /><span>Teriyaki Chicken</span></a>
+          <a class="feat" href="#m-r7"><img src="https://picsum.photos/seed/r7/640/400" alt="" /><span>Egg Roll Omelette</span></a>
+          <a class="feat" href="#m-r4"><img src="https://picsum.photos/seed/r4/640/400" alt="" /><span>Onigiri</span></a>
+          <a class="feat" href="#m-r3"><img src="https://picsum.photos/seed/r3/640/400" alt="" /><span>Crispy Tofu</span></a>
+          <!-- duplicate for seamless loop -->
+          <a class="feat" href="#m-r2"><img src="https://picsum.photos/seed/r2/640/400" alt="" /><span>Sesame Soba</span></a>
+          <a class="feat" href="#m-r1"><img src="https://picsum.photos/seed/r1/640/400" alt="" /><span>Teriyaki Chicken</span></a>
+          <a class="feat" href="#m-r7"><img src="https://picsum.photos/seed/r7/640/400" alt="" /><span>Egg Roll Omelette</span></a>
+          <a class="feat" href="#m-r4"><img src="https://picsum.photos/seed/r4/640/400" alt="" /><span>Onigiri</span></a>
+          <a class="feat" href="#m-r3"><img src="https://picsum.photos/seed/r3/640/400" alt="" /><span>Crispy Tofu</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters (contained) -->
+    <section id="filters" class="filters container">
+      <header class="section__head">
+        <h2>Filters</h2>
+        <p class="muted">Default: <strong>Popular</strong>. (Chips are placeholders for future filter UI.)</p>
+      </header>
+      <div class="chips" role="list">
+        <span class="chip chip--active" role="listitem">Popular</span>
+        <span class="chip" role="listitem">One-pan</span>
+        <span class="chip" role="listitem">≤10 ingredients</span>
+        <span class="chip" role="listitem">Vegan</span>
+        <span class="chip" role="listitem">≤15 min</span>
+        <span class="chip" role="listitem">Airfryer-friendly</span>
+      </div>
+    </section>
+
+    <!-- Bento grid (contained) -->
+    <section id="grid" class="cards container" aria-label="Recipe grid">
+      <!-- 12 cards with ratings -->
+      <article class="card card--sm">
+        <a class="card__link" href="#m-r6">
+          <img src="https://picsum.photos/seed/r6/600/400" alt="Cucumber Salad" />
+          <div class="card__body">
+            <h3 class="card__title">Cucumber Salad</h3>
+            <p class="card__meta">5 min · Fresh</p>
+            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--md">
+        <a class="card__link" href="#m-r3">
+          <img src="https://picsum.photos/seed/r3/600/400" alt="Crispy Tofu" />
+          <div class="card__body">
+            <h3 class="card__title">Crispy Tofu</h3>
+            <p class="card__meta">20 min · Airfryer</p>
+            <div class="card__rating" aria-label="Rated 4.5 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--lg">
+        <a class="card__link" href="#m-r2">
+          <img src="https://picsum.photos/seed/r2/600/400" alt="Sesame Soba" />
+          <div class="card__body">
+            <h3 class="card__title">Sesame Soba</h3>
+            <p class="card__meta">10 min · Vegan</p>
+            <div class="card__rating" aria-label="Rated 5 out of 5">★★★★★</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--sm">
+        <a class="card__link" href="#m-r4">
+          <img src="https://picsum.photos/seed/r4/600/400" alt="Onigiri" />
+          <div class="card__body">
+            <h3 class="card__title">Onigiri</h3>
+            <p class="card__meta">Rice + filling</p>
+            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--md">
+        <a class="card__link" href="#m-r5">
+          <img src="https://picsum.photos/seed/r5/600/400" alt="Ginger Beef" />
+          <div class="card__body">
+            <h3 class="card__title">Ginger Beef</h3>
+            <p class="card__meta">25 min · 8 ingredients</p>
+            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--lg">
+        <a class="card__link" href="#m-r1">
+          <img src="https://picsum.photos/seed/r1/600/400" alt="Teriyaki Chicken" />
+          <div class="card__body">
+            <h3 class="card__title">Teriyaki Chicken</h3>
+            <p class="card__meta">15 min · One-pan</p>
+            <div class="card__rating" aria-label="Rated 5 out of 5">★★★★★</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--md">
+        <a class="card__link" href="#m-r7">
+          <img src="https://picsum.photos/seed/r7/600/400" alt="Egg Roll Omelette" />
+          <div class="card__body">
+            <h3 class="card__title">Egg Roll Omelette</h3>
+            <p class="card__meta">12 min · 4 ingredients</p>
+            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--sm">
+        <a class="card__link" href="#m-r8">
+          <img src="https://picsum.photos/seed/r8/600/400" alt="Miso Veggies" />
+          <div class="card__body">
+            <h3 class="card__title">Miso Veggies</h3>
+            <p class="card__meta">18 min · Sheet-pan</p>
+            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--md">
+        <a class="card__link" href="#m-r9">
+          <img src="https://picsum.photos/seed/r9/600/400" alt="Yakitori Skewers" />
+          <div class="card__body">
+            <h3 class="card__title">Yakitori Skewers</h3>
+            <p class="card__meta">20 min · One-pan</p>
+            <div class="card__rating" aria-label="Rated 4.5 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--lg">
+        <a class="card__link" href="#m-r10">
+          <img src="https://picsum.photos/seed/r10/600/400" alt="Katsu Curry" />
+          <div class="card__body">
+            <h3 class="card__title">Katsu Curry</h3>
+            <p class="card__meta">30 min · Comfort</p>
+            <div class="card__rating" aria-label="Rated 5 out of 5">★★★★★</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--sm">
+        <a class="card__link" href="#m-r11">
+          <img src="https://picsum.photos/seed/r11/600/400" alt="Edamame Beans" />
+          <div class="card__body">
+            <h3 class="card__title">Edamame Beans</h3>
+            <p class="card__meta">5 min · Snack</p>
+            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+
+      <article class="card card--md">
+        <a class="card__link" href="#m-r12">
+          <img src="https://picsum.photos/seed/r12/600/400" alt="Chicken Karaage" />
+          <div class="card__body">
+            <h3 class="card__title">Chicken Karaage</h3>
+            <p class="card__meta">25 min · Crispy</p>
+            <div class="card__rating" aria-label="Rated 4.5 out of 5">★★★★☆</div>
+          </div>
+        </a>
+      </article>
+    </section>
+
+    <!-- Categories (contained) -->
+    <section class="categories container">
+      <h2>Categories</h2>
+      <ul class="catlist">
+        <li><a href="#grid">Popular</a></li>
+        <li><a href="#grid">One-pan</a></li>
+        <li><a href="#grid">≤10 ingredients</a></li>
+        <li><a href="#grid">Vegan</a></li>
+        <li><a href="#grid">≤15 min</a></li>
+        <li><a href="#grid">Airfryer-friendly</a></li>
+        <li><a href="#grid">Rice</a></li>
+        <li><a href="#grid">Noodles</a></li>
+        <li><a href="#grid">Snacks</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer (contained) -->
+  <footer class="site__footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <strong>🍱 Drooly</strong>
+        <p class="muted">Simple, fast bento ideas. Built with HTML + CSS Grid/Flex.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Footer links">
+        <a href="#featured">Featured</a>
+        <a href="#filters">Filters</a>
+        <a href="#grid">Recipes</a>
+      </nav>
+      <small>© 2025 Drooly Recipes · Placeholder content</small>
+    </div>
+  </footer>
+</body>
+</html>
