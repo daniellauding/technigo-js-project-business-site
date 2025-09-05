@@ -3,504 +3,789 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Drooly Bento Recipes</title>
+  <title>Stockholm Central Apartment • Local Guide</title>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="site" id="top">
+<body>
 
-  <!-- =================== MODALS FIRST (prevents hash jump) =================== -->
-  <!-- r1–r12 -->
-  <section id="m-r1" class="modal" aria-labelledby="m-r1-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r1/960/600" alt="Teriyaki Chicken" />
-      <div class="modal__body">
-        <h2 id="m-r1-title">Teriyaki Chicken</h2>
-        <p>One-pan · 15 min · ≤10 ingredients</p>
-        <h3>Ingredients</h3>
-        <ul>
-          <li>Chicken thighs (500g)</li><li>Soy sauce</li><li>Mirin</li>
-          <li>Sugar</li><li>Garlic</li><li>Ginger</li>
-          <li>Sesame seeds & spring onion</li>
-        </ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r2" class="modal" aria-labelledby="m-r2-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r2/960/600" alt="Sesame Soba" />
-      <div class="modal__body">
-        <h2 id="m-r2-title">Sesame Soba</h2>
-        <p>Vegan · 10 min · ≤10 ingredients</p>
-        <h3>Ingredients</h3>
-        <ul>
-          <li>Soba noodles</li><li>Sesame oil</li><li>Soy sauce</li>
-          <li>Rice vinegar</li><li>Sesame seeds</li><li>Cucumber & spring onion</li>
-        </ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r3" class="modal" aria-labelledby="m-r3-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r3/960/600" alt="Crispy Tofu" />
-      <div class="modal__body">
-        <h2 id="m-r3-title">Crispy Tofu</h2>
-        <p>Airfryer · 20 min · ≤10 ingredients</p>
-        <h3>Ingredients</h3>
-        <ul><li>Firm tofu</li><li>Cornstarch</li><li>Garlic powder</li><li>Soy sauce</li><li>Neutral oil</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r4" class="modal" aria-labelledby="m-r4-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r4/960/600" alt="Onigiri" />
-      <div class="modal__body">
-        <h2 id="m-r4-title">Onigiri</h2>
-        <p>Rice + filling · ultra simple</p>
-        <h3>Ingredients</h3>
-        <ul><li>Sushi rice</li><li>Nori</li><li>Tuna mayo / umeboshi</li><li>Salt</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r5" class="modal" aria-labelledby="m-r5-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r5/960/600" alt="Ginger Beef" />
-      <div class="modal__body">
-        <h2 id="m-r5-title">Ginger Beef</h2>
-        <p>25 min · 8 ingredients</p>
-        <h3>Ingredients</h3>
-        <ul><li>Beef strips</li><li>Ginger</li><li>Garlic</li><li>Soy</li><li>Sugar</li><li>Cornstarch</li><li>Oil</li><li>Scallions</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r6" class="modal" aria-labelledby="m-r6-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r6/960/600" alt="Cucumber Salad" />
-      <div class="modal__body">
-        <h2 id="m-r6-title">Cucumber Salad</h2>
-        <p>5 min · fresh</p>
-        <h3>Ingredients</h3>
-        <ul><li>Cucumber</li><li>Rice vinegar</li><li>Soy</li><li>Sesame oil</li><li>Sesame seeds</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r7" class="modal" aria-labelledby="m-r7-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r7/960/600" alt="Egg Roll Omelette" />
-      <div class="modal__body">
-        <h2 id="m-r7-title">Egg Roll Omelette</h2>
-        <p>12 min · 4 ingredients</p>
-        <h3>Ingredients</h3>
-        <ul><li>Eggs</li><li>Soy</li><li>Sugar</li><li>Oil</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r8" class="modal" aria-labelledby="m-r8-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r8/960/600" alt="Miso Veggies" />
-      <div class="modal__body">
-        <h2 id="m-r8-title">Miso Veggies</h2>
-        <p>Sheet-pan · 18 min</p>
-        <h3>Ingredients</h3>
-        <ul><li>Mixed veg</li><li>Miso</li><li>Soy</li><li>Oil</li><li>Honey (opt.)</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r9" class="modal" aria-labelledby="m-r9-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r9/960/600" alt="Yakitori Skewers" />
-      <div class="modal__body">
-        <h2 id="m-r9-title">Yakitori Skewers</h2>
-        <p>20 min · One-pan</p>
-        <h3>Ingredients</h3>
-        <ul><li>Chicken thigh</li><li>Soy</li><li>Mirin</li><li>Sugar</li><li>Spring onion</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r10" class="modal" aria-labelledby="m-r10-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r10/960/600" alt="Katsu Curry" />
-      <div class="modal__body">
-        <h2 id="m-r10-title">Katsu Curry</h2>
-        <p>30 min · comfort</p>
-        <h3>Ingredients</h3>
-        <ul><li>Chicken cutlet</li><li>Panko</li><li>Curry roux</li><li>Onion</li><li>Rice</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r11" class="modal" aria-labelledby="m-r11-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r11/960/600" alt="Edamame Beans" />
-      <div class="modal__body">
-        <h2 id="m-r11-title">Edamame Beans</h2>
-        <p>Snack · 5 min</p>
-        <h3>Ingredients</h3>
-        <ul><li>Edamame</li><li>Sea salt</li><li>Chili flakes (opt.)</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <section id="m-r12" class="modal" aria-labelledby="m-r12-title" role="dialog" aria-modal="true">
-    <article class="modal__card">
-      <a class="modal__close" href="#grid" aria-label="Close">×</a>
-      <img src="https://picsum.photos/seed/r12/960/600" alt="Chicken Karaage" />
-      <div class="modal__body">
-        <h2 id="m-r12-title">Chicken Karaage</h2>
-        <p>Crispy · 25 min</p>
-        <h3>Ingredients</h3>
-        <ul><li>Chicken thigh</li><li>Soy</li><li>Ginger</li><li>Garlic</li><li>Potato starch</li></ul>
-      </div>
-    </article>
-  </section>
-
-  <!-- Shared backdrop: clicking it closes (links to #grid) -->
-  <a class="modal__scrim" href="#grid" aria-label="Close modal"></a>
-
-  <!-- =================== MAIN SITE =================== -->
-  <header class="site__header container">
-    <a class="logo" href="#top">🍱 Drooly</a>
-
-    <!-- CSS-only Shopping List dropdown -->
-    <details class="shop" role="list">
-      <summary class="shop__summary">🛒 Shopping List</summary>
-      <div class="shop__panel" role="group" aria-label="Shopping list">
-        <!-- Tip: these mirror ingredients in the modals -->
-        <div class="shop__col">
-          <h4><a href="#m-r1">Teriyaki Chicken</a></h4>
-          <label><input type="checkbox"> Chicken thighs</label>
-          <label><input type="checkbox"> Soy sauce</label>
-          <label><input type="checkbox"> Mirin</label>
-          <label><input type="checkbox"> Sugar</label>
-          <label><input type="checkbox"> Garlic, Ginger</label>
-          <label><input type="checkbox"> Sesame seeds, Spring onion</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r2">Sesame Soba</a></h4>
-          <label><input type="checkbox"> Soba noodles</label>
-          <label><input type="checkbox"> Sesame oil</label>
-          <label><input type="checkbox"> Soy sauce</label>
-          <label><input type="checkbox"> Rice vinegar</label>
-          <label><input type="checkbox"> Sesame seeds</label>
-          <label><input type="checkbox"> Cucumber, Spring onion</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r3">Crispy Tofu</a></h4>
-          <label><input type="checkbox"> Firm tofu</label>
-          <label><input type="checkbox"> Cornstarch</label>
-          <label><input type="checkbox"> Garlic powder</label>
-          <label><input type="checkbox"> Soy sauce</label>
-          <label><input type="checkbox"> Neutral oil</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r4">Onigiri</a></h4>
-          <label><input type="checkbox"> Sushi rice</label>
-          <label><input type="checkbox"> Nori</label>
-          <label><input type="checkbox"> Tuna mayo / Umeboshi</label>
-          <label><input type="checkbox"> Salt</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r5">Ginger Beef</a></h4>
-          <label><input type="checkbox"> Beef strips</label>
-          <label><input type="checkbox"> Ginger, Garlic</label>
-          <label><input type="checkbox"> Soy, Sugar</label>
-          <label><input type="checkbox"> Cornstarch, Oil</label>
-          <label><input type="checkbox"> Scallions</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r6">Cucumber Salad</a></h4>
-          <label><input type="checkbox"> Cucumber</label>
-          <label><input type="checkbox"> Rice vinegar</label>
-          <label><input type="checkbox"> Soy</label>
-          <label><input type="checkbox"> Sesame oil</label>
-          <label><input type="checkbox"> Sesame seeds</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r7">Egg Roll Omelette</a></h4>
-          <label><input type="checkbox"> Eggs</label>
-          <label><input type="checkbox"> Soy</label>
-          <label><input type="checkbox"> Sugar</label>
-          <label><input type="checkbox"> Oil</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r8">Miso Veggies</a></h4>
-          <label><input type="checkbox"> Mixed veg</label>
-          <label><input type="checkbox"> Miso</label>
-          <label><input type="checkbox"> Soy</label>
-          <label><input type="checkbox"> Oil</label>
-          <label><input type="checkbox"> Honey (opt.)</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r9">Yakitori Skewers</a></h4>
-          <label><input type="checkbox"> Chicken thigh</label>
-          <label><input type="checkbox"> Soy, Mirin, Sugar</label>
-          <label><input type="checkbox"> Spring onion</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r10">Katsu Curry</a></h4>
-          <label><input type="checkbox"> Chicken cutlet</label>
-          <label><input type="checkbox"> Panko</label>
-          <label><input type="checkbox"> Curry roux</label>
-          <label><input type="checkbox"> Onion</label>
-          <label><input type="checkbox"> Rice</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r11">Edamame Beans</a></h4>
-          <label><input type="checkbox"> Edamame</label>
-          <label><input type="checkbox"> Sea salt</label>
-          <label><input type="checkbox"> Chili flakes (opt.)</label>
-        </div>
-        <div class="shop__col">
-          <h4><a href="#m-r12">Chicken Karaage</a></h4>
-          <label><input type="checkbox"> Chicken thigh</label>
-          <label><input type="checkbox"> Soy</label>
-          <label><input type="checkbox"> Ginger, Garlic</label>
-          <label><input type="checkbox"> Potato starch</label>
-        </div>
-      </div>
-    </details>
-
-    <!-- Desktop-only nav -->
-    <nav class="nav nav--desktop" aria-label="Primary">
-      <a href="#featured">Featured</a>
-      <a href="#filters">Filters</a>
-      <a href="#grid">Recipes</a>
-    </nav>
+  <!-- Hidden checkbox for mobile menu -->
+  <input id="nav-toggle" type="checkbox" class="nav-toggle" aria-label="Toggle navigation" />
+  
+  <!-- Header with navigation -->
+  <header class="header">
+    <div class="header-content">
+      <h1 class="logo">STOCKHOLM APARTMENT</h1>
+      <!-- Desktop navigation -->
+      <nav class="desktop-nav">
+        <a href="#about">About</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#local">Local</a>
+        <a href="#transport">Transport</a>
+        <a href="#book">Book</a>
+      </nav>
+      <!-- Hamburger for mobile -->
+      <label for="nav-toggle" class="burger" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
   </header>
 
-  <main class="site__main">
+  <!-- Mobile navigation -->
+  <nav class="mobile-nav">
+    <a href="#about">About</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#local">Local</a>
+    <a href="#transport">Transport</a>
+    <a href="#book">Book</a>
+  </nav>
 
-    <!-- Hero (contained) -->
-    <section class="hero container">
-      <h1>Easy bento-friendly recipes</h1>
-      <p>One-pan, ≤10 ingredients. Click a card to view; click × or the backdrop to close.</p>
+  <!-- Layout -->
+  <main class="wrapper">
+    
+    <!-- Big title opener -->
+    <section class="big-title">
+      <h1 class="typo-hero-title">STOCKHOLM<br>LIVING</h1>
+      <p class="subtitle typo-subtitle">Central apartment • Flexible stays • Local experience</p>
     </section>
 
-    <!-- Featured (full-bleed marquee with contained heading) -->
-    <section id="featured" class="featured">
-      <div class="container section__head">
-        <h2>Featured</h2>
-        <p class="muted">Popular picks — auto-scrolling preview</p>
+    <!-- Hero Image Section -->
+    <div class="hero-section">
+      <div class="hero-image">
+        <img src="images/hero.png" alt="Stockholm apartment hero view" />
+        <div class="hero-overlay">
+          <span class="hero-tag"><i data-lucide="check-circle"></i> AVAILABLE ON REQUEST</span>
+          <div class="hero-text">
+            <h2 class="typo-heading-large">Your Stockholm Base</h2>
+            <p class="typo-body-large">Central • Comfortable • Connected</p>
+          </div>
+        </div>
       </div>
-      <div class="marquee" aria-hidden="true">
-        <div class="track">
-          <a class="feat" href="#m-r2"><img src="https://picsum.photos/seed/r2/640/400" alt="" /><span>Sesame Soba</span></a>
-          <a class="feat" href="#m-r1"><img src="https://picsum.photos/seed/r1/640/400" alt="" /><span>Teriyaki Chicken</span></a>
-          <a class="feat" href="#m-r7"><img src="https://picsum.photos/seed/r7/640/400" alt="" /><span>Egg Roll Omelette</span></a>
-          <a class="feat" href="#m-r4"><img src="https://picsum.photos/seed/r4/640/400" alt="" /><span>Onigiri</span></a>
-          <a class="feat" href="#m-r3"><img src="https://picsum.photos/seed/r3/640/400" alt="" /><span>Crispy Tofu</span></a>
-          <!-- duplicate for seamless loop -->
-          <a class="feat" href="#m-r2"><img src="https://picsum.photos/seed/r2/640/400" alt="" /><span>Sesame Soba</span></a>
-          <a class="feat" href="#m-r1"><img src="https://picsum.photos/seed/r1/640/400" alt="" /><span>Teriyaki Chicken</span></a>
-          <a class="feat" href="#m-r7"><img src="https://picsum.photos/seed/r7/640/400" alt="" /><span>Egg Roll Omelette</span></a>
-          <a class="feat" href="#m-r4"><img src="https://picsum.photos/seed/r4/640/400" alt="" /><span>Onigiri</span></a>
-          <a class="feat" href="#m-r3"><img src="https://picsum.photos/seed/r3/640/400" alt="" /><span>Crispy Tofu</span></a>
+    </div>
+
+    <!-- Quick Facts + Entrance -->
+    <div class="grid-section" id="about">
+      <div class="image-large">
+        <img src="images/entrance.png" alt="Apartment entrance" />
+      </div>
+      <div class="facts-block">
+        <h2 class="typo-heading-medium">Quick Facts</h2>
+        <ul class="fact-list">
+          <li><i data-lucide="star"></i> 4.9/5 stars</li>
+          <li><i data-lucide="users"></i> Up to 2 people</li>
+          <li><i data-lucide="map-pin"></i> Kungsholmen</li>
+          <li><i data-lucide="train"></i> 5 min to Fridhemsplan</li>
+          <li><i data-lucide="wifi"></i> 100 Mbps</li>
+          <li><i data-lucide="refresh-cw"></i> Apartment exchange OK</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mixed content: Room + Quote -->
+    <div class="content-mix" id="rooms">
+      <div class="room-feature">
+        <img src="images/bed-1.png" alt="Bedroom" />
+        <div class="room-info">
+          <h3 class="typo-heading-small">Sleep Well</h3>
+          <p class="typo-body">Comfortable double bed with quality Swedish linens. Blackout curtains for those bright summer nights. Beautiful wooden floors throughout.</p>
+        </div>
+      </div>
+      <div class="reviews-slider">
+        <div class="reviews-header">
+          <div class="rating-summary">
+            <div class="overall-rating">
+              <span class="rating-number">4.9</span>
+              <div class="stars-display">
+                <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
+              </div>
+              <span class="review-count">110 reviews</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reviews-container">
+          <div class="review-slide">
+            <blockquote class="typo-quote">"Perfect place to stay when visiting Stockholm. Great location and Daniel was very responsive!"</blockquote>
+            <p class="reviewer typo-caption">— Stefanos, Greece • 5 stars</p>
+          </div>
+          
+          <div class="review-slide">
+            <blockquote>"Daniel was an excellent host with valuable advice. House was very clean and equipped with every comfort."</blockquote>
+            <p class="reviewer">— Giulia, Italy • 5 stars</p>
+          </div>
+          
+          <div class="review-slide">
+            <blockquote>"Great location. Quiet place facing the back. Shower was excellent with plenty of hot water."</blockquote>
+            <p class="reviewer">— Ulric, Washington DC • 5 stars</p>
+          </div>
+          
+          <div class="review-slide">
+            <blockquote>"Couldn't have been better. Very clean and comfortable flat. Daniel was very responsive. 10/10!"</blockquote>
+            <p class="reviewer">— Camilla, UK • 5 stars</p>
+          </div>
+          
+          <div class="review-slide">
+            <blockquote>"A lovely tidy apartment with clear instructions and arm's length list of great local recommendations."</blockquote>
+            <p class="reviewer">— Jessica, USA • 5 stars</p>
+          </div>
+          
+          <div class="review-slide">
+            <blockquote>"Very good place in regards to walkability. Didn't have to use public transport at all!"</blockquote>
+            <p class="reviewer">— Marek, Poland • 5 stars</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amenities scattered -->
+    <div class="amenities-scattered">
+      <div class="amenity-item kitchen">
+        <span class="amenity-icon"><i data-lucide="chef-hat"></i></span>
+        <p>Full kitchen with everything you need • Coffee • Tea • Basic spices</p>
+      </div>
+      <div class="amenity-item work">
+        <span class="amenity-icon"><i data-lucide="monitor"></i></span>
+        <p>Dedicated workspace • External monitor • Ergonomic chair • USB hub</p>
+      </div>
+      <div class="amenity-item comfort">
+        <span class="amenity-icon"><i data-lucide="home"></i></span>
+        <p><strong>Entertainment & Comfort</strong><br>
+        Netflix Premium • Board games • Bluetooth speaker<br>
+        Local guidebooks • Cozy lighting • Quality linens</p>
+      </div>
+    </div>
+
+    <!-- Big typography section -->
+    <section class="big-type">
+      <h2>FEEL<br>AT<br>HOME</h2>
+    </section>
+
+    <!-- Host Profile Section -->
+    <div class="host-profile">
+      <div class="host-content">
+        <div class="host-image">
+          <img src="images/profile.png" alt="Daniel - Your Host" />
+        </div>
+        <div class="host-info">
+          <h3>Meet Your Host</h3>
+          <h4>Daniel • Digital Nomad & Remote Worker</h4>
+          <p>As someone who's traveled the world while working remotely, I understand what makes a perfect stay. This apartment has been curated with the modern traveler in mind - from the ergonomic workspace to the local insider tips.</p>
+          <p>I'm passionate about sharing Stockholm's hidden gems and helping fellow remote workers find their perfect productivity space.</p>
+          <div class="host-links">
+            <a href="https://www.daniellauding.se" target="_blank" class="host-link">
+              <i data-lucide="globe"></i> Enter my world of travel experiences & stories
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dynamic Kitchen Section -->
+    <section class="kitchen-section">
+      <div class="kitchen-header bg-black">
+        <h2>CULINARY<br>PLAYGROUND</h2>
+        <p>Full kitchen • Premium appliances • Nordic design</p>
+      </div>
+      
+      <div class="kitchen-showcase">
+        <img src="images/kitchen-1.png" alt="Kitchen view 1" class="kitchen-main" />
+        <img src="images/kitchen-2.png" alt="Kitchen view 2" class="kitchen-detail" />
+        
+        <div class="kitchen-equipment">
+          <h3>EQUIPPED</h3>
+          <div class="equipment-grid">
+            <div class="equip-item">
+              <i data-lucide="zap"></i>
+              <span>Induction</span>
+            </div>
+            <div class="equip-item">
+              <i data-lucide="thermometer"></i>
+              <span>Convection oven</span>
+            </div>
+            <div class="equip-item">
+              <i data-lucide="microwave"></i>
+              <span>Microwave</span>
+            </div>
+            <div class="equip-item">
+              <i data-lucide="refrigerator"></i>
+              <span>Full size fridge</span>
+            </div>
+            <div class="equip-item">
+              <i data-lucide="coffee"></i>
+              <span>Coffee maker</span>
+            </div>
+            <div class="equip-item">
+              <i data-lucide="soup"></i>
+              <span>Pots & pans</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="kitchen-vibe">
+          <blockquote>"The kitchen is the heart of this apartment"</blockquote>
+          <p>High-gloss white cabinets • Arched window • Breakfast bar • Everything you need to cook like a local</p>
         </div>
       </div>
     </section>
 
-    <!-- Filters (contained) -->
-    <section id="filters" class="filters container">
-      <header class="section__head">
-        <h2>Filters</h2>
-        <p class="muted">Default: <strong>Popular</strong>. (Chips are placeholders for future filter UI.)</p>
-      </header>
-      <div class="chips" role="list">
-        <span class="chip chip--active" role="listitem">Popular</span>
-        <span class="chip" role="listitem">One-pan</span>
-        <span class="chip" role="listitem">≤10 ingredients</span>
-        <span class="chip" role="listitem">Vegan</span>
-        <span class="chip" role="listitem">≤15 min</span>
-        <span class="chip" role="listitem">Airfryer-friendly</span>
+    <!-- Big workspace section -->
+    <section class="workspace-section">
+      <div class="workspace-title bg-black">
+        <h2>REMOTE WORK READY</h2>
+        <p>Professional setup • High-speed internet • Quiet neighborhood</p>
+      </div>
+      
+      <div class="workspace-grid">
+        <img src="images/office-1.png" alt="Main workspace" class="workspace-main" />
+        <img src="images/office-2.png" alt="Workspace detail" class="workspace-detail" />
+        <img src="images/office-3.png" alt="Workspace setup" class="workspace-extra" />
+        
+        <div class="workspace-features">
+          <div class="feature-list">
+            <div class="feature-item">
+              <i data-lucide="monitor"></i>
+              <span>External 27" monitor</span>
+            </div>
+            <div class="feature-item">
+              <i data-lucide="wifi"></i>
+              <span>100 Mbps fiber internet</span>
+            </div>
+            <div class="feature-item">
+              <i data-lucide="headphones"></i>
+              <span>Quiet neighborhood</span>
+            </div>
+            <div class="feature-item">
+              <i data-lucide="usb"></i>
+              <span>USB hub & chargers</span>
+            </div>
+            <div class="feature-item">
+              <i data-lucide="chair"></i>
+              <span>Ergonomic chair</span>
+            </div>
+            <div class="feature-item">
+              <i data-lucide="lamp-desk"></i>
+              <span>Task lighting</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="workspace-review">
+          <div class="stars"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <blockquote>"Perfect setup for remote work. Great wifi, comfortable desk, super quiet neighborhood."</blockquote>
+          <p class="reviewer">— John, London • Digital nomad</p>
+        </div>
       </div>
     </section>
 
-    <!-- Bento grid (contained) -->
-    <section id="grid" class="cards container" aria-label="Recipe grid">
-      <!-- 12 cards with ratings -->
-      <article class="card card--sm">
-        <a class="card__link" href="#m-r6">
-          <img src="https://picsum.photos/seed/r6/600/400" alt="Cucumber Salad" />
-          <div class="card__body">
-            <h3 class="card__title">Cucumber Salad</h3>
-            <p class="card__meta">5 min · Fresh</p>
-            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--md">
-        <a class="card__link" href="#m-r3">
-          <img src="https://picsum.photos/seed/r3/600/400" alt="Crispy Tofu" />
-          <div class="card__body">
-            <h3 class="card__title">Crispy Tofu</h3>
-            <p class="card__meta">20 min · Airfryer</p>
-            <div class="card__rating" aria-label="Rated 4.5 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--lg">
-        <a class="card__link" href="#m-r2">
-          <img src="https://picsum.photos/seed/r2/600/400" alt="Sesame Soba" />
-          <div class="card__body">
-            <h3 class="card__title">Sesame Soba</h3>
-            <p class="card__meta">10 min · Vegan</p>
-            <div class="card__rating" aria-label="Rated 5 out of 5">★★★★★</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--sm">
-        <a class="card__link" href="#m-r4">
-          <img src="https://picsum.photos/seed/r4/600/400" alt="Onigiri" />
-          <div class="card__body">
-            <h3 class="card__title">Onigiri</h3>
-            <p class="card__meta">Rice + filling</p>
-            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--md">
-        <a class="card__link" href="#m-r5">
-          <img src="https://picsum.photos/seed/r5/600/400" alt="Ginger Beef" />
-          <div class="card__body">
-            <h3 class="card__title">Ginger Beef</h3>
-            <p class="card__meta">25 min · 8 ingredients</p>
-            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--lg">
-        <a class="card__link" href="#m-r1">
-          <img src="https://picsum.photos/seed/r1/600/400" alt="Teriyaki Chicken" />
-          <div class="card__body">
-            <h3 class="card__title">Teriyaki Chicken</h3>
-            <p class="card__meta">15 min · One-pan</p>
-            <div class="card__rating" aria-label="Rated 5 out of 5">★★★★★</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--md">
-        <a class="card__link" href="#m-r7">
-          <img src="https://picsum.photos/seed/r7/600/400" alt="Egg Roll Omelette" />
-          <div class="card__body">
-            <h3 class="card__title">Egg Roll Omelette</h3>
-            <p class="card__meta">12 min · 4 ingredients</p>
-            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--sm">
-        <a class="card__link" href="#m-r8">
-          <img src="https://picsum.photos/seed/r8/600/400" alt="Miso Veggies" />
-          <div class="card__body">
-            <h3 class="card__title">Miso Veggies</h3>
-            <p class="card__meta">18 min · Sheet-pan</p>
-            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--md">
-        <a class="card__link" href="#m-r9">
-          <img src="https://picsum.photos/seed/r9/600/400" alt="Yakitori Skewers" />
-          <div class="card__body">
-            <h3 class="card__title">Yakitori Skewers</h3>
-            <p class="card__meta">20 min · One-pan</p>
-            <div class="card__rating" aria-label="Rated 4.5 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--lg">
-        <a class="card__link" href="#m-r10">
-          <img src="https://picsum.photos/seed/r10/600/400" alt="Katsu Curry" />
-          <div class="card__body">
-            <h3 class="card__title">Katsu Curry</h3>
-            <p class="card__meta">30 min · Comfort</p>
-            <div class="card__rating" aria-label="Rated 5 out of 5">★★★★★</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--sm">
-        <a class="card__link" href="#m-r11">
-          <img src="https://picsum.photos/seed/r11/600/400" alt="Edamame Beans" />
-          <div class="card__body">
-            <h3 class="card__title">Edamame Beans</h3>
-            <p class="card__meta">5 min · Snack</p>
-            <div class="card__rating" aria-label="Rated 4 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
-
-      <article class="card card--md">
-        <a class="card__link" href="#m-r12">
-          <img src="https://picsum.photos/seed/r12/600/400" alt="Chicken Karaage" />
-          <div class="card__body">
-            <h3 class="card__title">Chicken Karaage</h3>
-            <p class="card__meta">25 min · Crispy</p>
-            <div class="card__rating" aria-label="Rated 4.5 out of 5">★★★★☆</div>
-          </div>
-        </a>
-      </article>
+    <!-- Scattered outdoor images with ALL patio images -->
+    <section class="outdoor-scattered" id="outdoor">
+      <h2 class="section-header">Outdoor Vibes</h2>
+      <div class="outdoor-grid">
+        <img src="images/patio-0.png" alt="Patio entrance" class="patio-main" />
+        <div class="outdoor-text">
+          <h3>Your Private Oasis</h3>
+          <p>Shared courtyard • Morning coffee • Evening wine • BBQ in summer</p>
+        </div>
+        <img src="images/patio-1.png" alt="Patio 1" class="patio-small" />
+        <img src="images/patio-2.png" alt="Patio 2" class="patio-tall" />
+        <img src="images/patio-3.png" alt="Patio 3" class="patio-medium" />
+        <img src="images/patio-4.png" alt="Patio 4" class="patio-wide" />
+        <img src="images/patio-5.png" alt="Patio 5" class="patio-extra" />
+        <div class="patio-note">
+          <p>Don't forget to lock the inner patio door when you're done!</p>
+        </div>
+      </div>
     </section>
 
-    <!-- Categories (contained) -->
-    <section class="categories container">
-      <h2>Categories</h2>
-      <ul class="catlist">
-        <li><a href="#grid">Popular</a></li>
-        <li><a href="#grid">One-pan</a></li>
-        <li><a href="#grid">≤10 ingredients</a></li>
-        <li><a href="#grid">Vegan</a></li>
-        <li><a href="#grid">≤15 min</a></li>
-        <li><a href="#grid">Airfryer-friendly</a></li>
-        <li><a href="#grid">Rice</a></li>
-        <li><a href="#grid">Noodles</a></li>
-        <li><a href="#grid">Snacks</a></li>
-      </ul>
+    <!-- Transportation & Local Bento Grid -->
+    <section class="bento-grid-section">
+      <div class="bento-header">
+        <h2>EAT & DRINK & EXPLORE</h2>
+        <p>Everything you need to explore Stockholm like a local</p>
+      </div>
+      
+      <div class="bento-grid">
+        <!-- Transportation Card -->
+        <div class="bento-card transport-card">
+          <h3><i data-lucide="train"></i> Metro Access</h3>
+          <div class="transport-links">
+            <a href="https://maps.google.com/?q=Fridhemsplan+Station+Stockholm" target="_blank">
+              <i data-lucide="map-pin"></i> Fridhemsplan - 5 min walk
+              <small>Blue & Green Lines</small>
+            </a>
+            <a href="https://maps.google.com/?q=Stockholm+Central+Station" target="_blank">
+              <i data-lucide="building"></i> Central Station - 15 min
+            </a>
+          </div>
+        </div>
+        
+        <!-- Morning Spots -->
+        <div class="bento-card food-card">
+          <h3><i data-lucide="sunrise"></i> Morning</h3>
+          <div class="food-links">
+            <a href="https://maps.google.com/?q=Vete-Katten+Fridhemsplan+Stockholm" target="_blank">
+              <strong>Vete-Katten</strong> - 5 min<br>Historic Swedish pastries <i data-lucide="external-link"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Greasy+Spoon+Fridhemsplan+Stockholm" target="_blank">
+              <strong>Greasy Spoon</strong> - 4 min<br>British & American breakfast <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Lunch Spots -->
+        <div class="bento-card food-card">
+          <h3><i data-lucide="utensils"></i> Lunch</h3>
+          <div class="food-links">
+            <a href="https://maps.google.com/?q=Meno+Male+Stockholm+Kungsholmen" target="_blank">
+              <strong>Meno Male</strong> - 4 min<br>Renowned pizza spot <i data-lucide="external-link"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Jebena+Stockholm+Kungsholmen" target="_blank">
+              <strong>Jebena</strong> - 6 min<br>Authentic Ethiopian <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Dinner & Upscale -->
+        <div class="bento-card food-card">
+          <h3><i data-lucide="chef-hat"></i> Dinner</h3>
+          <div class="food-links">
+            <a href="https://maps.google.com/?q=Restaurant+AG+Stockholm" target="_blank">
+              <strong>Restaurant AG</strong> - 10 min<br>Renowned steakhouse <i data-lucide="external-link"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Orangeriet+Bar+Kök+Stockholm" target="_blank">
+              <strong>Orangeriet Bar & Kök</strong> - 12 min<br>Nordic cuisine by the water <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Bars & Drinks -->
+        <div class="bento-card drinks-card">
+          <h3><i data-lucide="wine"></i> Drinks</h3>
+          <div class="food-links">
+            <a href="https://maps.google.com/?q=Ölstugan+Stockholm+Kungsholmen" target="_blank">
+              <strong>Ölstugan</strong> - 8 min<br>Casual beers <i data-lucide="external-link"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Apropos+St+Eriksplan+Stockholm" target="_blank">
+              <strong>Apropos</strong> - 10 min<br>Nice cocktails <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Pizza Spots -->
+        <div class="bento-card pizza-card">
+          <h3><i data-lucide="pizza"></i> Pizza</h3>
+          <div class="food-links">
+            <a href="https://maps.google.com/?q=800+grader+Odenplan+Stockholm" target="_blank">
+              <strong>800 grader</strong> - 15 min<br>Excellent pizza <i data-lucide="external-link"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Deglabbet+Stockholm" target="_blank">
+              <strong>Deglabbet</strong> - 12 min<br>Top pizza recommendation <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- International Food -->
+        <div class="bento-card international-card">
+          <h3><i data-lucide="globe"></i> International</h3>
+          <div class="food-links">
+            <a href="https://maps.google.com/?q=Wan+Thai+St+Eriksplan+Stockholm" target="_blank">
+              <strong>Wan Thai</strong> - 12 min<br>Authentic Thai <i data-lucide="external-link"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Koreana+Stockholm+City" target="_blank">
+              <strong>Koreana</strong> - 15 min<br>Great bibimbap <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Nightlife -->
+        <div class="bento-card nightlife-card">
+          <h3><i data-lucide="music"></i> Nightlife</h3>
+          <div class="food-links">
+            <a href="https://maps.google.com/?q=Slakthusområdet+Stockholm" target="_blank">
+              <strong>Slakthusområdet</strong> - 20 min<br>Clubs, DJs & concerts <i data-lucide="external-link"></i>
+            </a>
+            <a href="https://maps.google.com/?q=Nytorget+Södermalm+Stockholm" target="_blank">
+              <strong>Nytorget bars</strong> - 18 min<br>Södermalm bar scene <i data-lucide="external-link"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- Complete Restaurant & Bar List -->
+    <section class="complete-recommendations">
+      <div class="recommendations-header">
+        <h2>COMPLETE LOCAL GUIDE</h2>
+        <p>Your host's curated Stockholm list</p>
+      </div>
+      
+      <div class="recommendations-columns">
+        <div class="rec-column">
+          <h3><i data-lucide="sunrise"></i> Morning & Coffee</h3>
+          <div class="rec-list">
+            <a href="https://maps.google.com/?q=Vete-Katten+Fridhemsplan+Stockholm" target="_blank">
+              <strong>Vete-Katten</strong> - 5 min walk<br>
+              Historic Swedish pastry house • Cinnamon buns & coffee
+            </a>
+            <a href="https://maps.google.com/?q=Greasy+Spoon+Fridhemsplan+Stockholm" target="_blank">
+              <strong>Greasy Spoon</strong> - 4 min walk<br>
+              British & American breakfast • Eggs Benedict perfection
+            </a>
+            <a href="https://maps.google.com/?q=Café+Pascal+Stockholm" target="_blank">
+              <strong>Café Pascal</strong> - 3 min walk<br>
+              Best croissants in the city • Fresh daily
+            </a>
+            <a href="https://maps.google.com/?q=Johan+Nyström+Stockholm" target="_blank">
+              <strong>Johan & Nyström</strong> - 6 min walk<br>
+              Specialty coffee roasters • Quality beans
+            </a>
+          </div>
+        </div>
+        
+        <div class="rec-column">
+          <h3><i data-lucide="utensils"></i> Lunch & Casual</h3>
+          <div class="rec-list">
+            <a href="https://maps.google.com/?q=Meno+Male+Stockholm+Kungsholmen" target="_blank">
+              <strong>Meno Male</strong> - 4 min walk<br>
+              Renowned pizza spot • Authentic Italian flavors
+            </a>
+            <a href="https://maps.google.com/?q=Jebena+Stockholm+Kungsholmen" target="_blank">
+              <strong>Jebena</strong> - 6 min walk<br>
+              Authentic Ethiopian cuisine • Spice blends
+            </a>
+            <a href="https://maps.google.com/?q=Lao+Wai+Stockholm" target="_blank">
+              <strong>Lao Wai</strong> - 5 min walk<br>
+              Modern Chinese cuisine • Fresh & creative
+            </a>
+            <a href="https://maps.google.com/?q=800+grader+Odenplan+Stockholm" target="_blank">
+              <strong>800 grader</strong> - 15 min walk<br>
+              Excellent Neapolitan pizza • Wood fired
+            </a>
+          </div>
+        </div>
+        
+        <div class="rec-column">
+          <h3><i data-lucide="chef-hat"></i> Fine Dining</h3>
+          <div class="rec-list">
+            <a href="https://maps.google.com/?q=Restaurant+AG+Stockholm" target="_blank">
+              <strong>Restaurant AG</strong> - 10 min walk<br>
+              Renowned steakhouse • Premium cuts & wine
+            </a>
+            <a href="https://maps.google.com/?q=Orangeriet+Bar+Kök+Stockholm" target="_blank">
+              <strong>Orangeriet Bar & Kök</strong> - 12 min walk<br>
+              Nordic cuisine by the water • Seasonal menu
+            </a>
+            <a href="https://maps.google.com/?q=Deglabbet+Stockholm" target="_blank">
+              <strong>Deglabbet</strong> - 12 min walk<br>
+              Top pizza recommendation • Artisan approach
+            </a>
+          </div>
+        </div>
+        
+        <div class="rec-column">
+          <h3><i data-lucide="wine"></i> Bars & Nightlife</h3>
+          <div class="rec-list">
+            <a href="https://maps.google.com/?q=Ölstugan+Stockholm+Kungsholmen" target="_blank">
+              <strong>Ölstugan</strong> - 8 min walk<br>
+              Casual beer hall • Local brews & atmosphere
+            </a>
+            <a href="https://maps.google.com/?q=Apropos+St+Eriksplan+Stockholm" target="_blank">
+              <strong>Apropos</strong> - 10 min walk<br>
+              Craft cocktails • Intimate setting
+            </a>
+            <a href="https://maps.google.com/?q=Brewdog+Stockholm" target="_blank">
+              <strong>Brewdog</strong> - 8 min walk<br>
+              Craft beer selection • Modern pub vibe
+            </a>
+            <a href="https://maps.google.com/?q=Slakthusområdet+Stockholm" target="_blank">
+              <strong>Slakthusområdet</strong> - 20 min<br>
+              Club district • DJs, concerts & late nights
+            </a>
+            <a href="https://maps.google.com/?q=Nytorget+Södermalm+Stockholm" target="_blank">
+              <strong>Nytorget bars</strong> - 18 min<br>
+              Södermalm bar scene • Trendy & vibrant
+            </a>
+          </div>
+        </div>
+        
+        <div class="rec-column">
+          <h3><i data-lucide="globe"></i> International</h3>
+          <div class="rec-list">
+            <a href="https://maps.google.com/?q=Wan+Thai+St+Eriksplan+Stockholm" target="_blank">
+              <strong>Wan Thai</strong> - 12 min walk<br>
+              Authentic Thai flavors • Traditional recipes
+            </a>
+            <a href="https://maps.google.com/?q=Koreana+Stockholm+City" target="_blank">
+              <strong>Koreana</strong> - 15 min walk<br>
+              Korean cuisine • Great bibimbap & kimchi
+            </a>
+          </div>
+        </div>
+        
+        <div class="rec-column">
+          <h3><i data-lucide="shopping-bag"></i> Shopping & Markets</h3>
+          <div class="rec-list">
+            <a href="https://maps.google.com/?q=Hötorgshallen+Stockholm" target="_blank">
+              <strong>Hötorgshallen</strong> - 15 min<br>
+              Food market • Swedish delicacies & fresh produce
+            </a>
+            <a href="https://maps.google.com/?q=NK+Stockholm" target="_blank">
+              <strong>NK Department Store</strong> - 15 min<br>
+              Premium Swedish design • Fashion & home goods
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Recommendations Carousel -->
+    <section class="recommendations-carousel" id="local">
+      <div class="carousel-header">
+        <h2>Local Gems</h2>
+        <p>Auto-scrolling recommendations from your host</p>
+      </div>
+      
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="coffee"></i>
+              <h3>Morning Ritual</h3>
+              <p>Start at Café Pascal (3 min walk) for the city's best croissants, then grab specialty coffee from Johan & Nyström.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="utensils"></i>
+              <h3>Lunch Favorites</h3>
+              <p>Meno Male for authentic Italian pasta or Lao Wai for modern Chinese cuisine - both within 5 minutes.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="wine"></i>
+              <h3>Evening Drinks</h3>
+              <p>Orangeriet offers waterfront views, while Brewdog serves the best craft beer selection in the area.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="map-pin"></i>
+              <h3>Hidden Spots</h3>
+              <p>Walk to City Hall gardens for sunset, or explore the secret courtyards behind Västerlånggatan in Old Town.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="shopping-bag"></i>
+              <h3>Local Shopping</h3>
+              <p>Hötorgshallen food market (15 min) for Swedish delicacies, or NK department store for premium Swedish design.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="leaf"></i>
+              <h3>Nature Escape</h3>
+              <p>Tantolunden park (10 min) for BBQ spots and waterfront walks, perfect for summer evenings and picnics.</p>
+            </div>
+          </div>
+          
+          <!-- Duplicate slides for seamless loop -->
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="coffee"></i>
+              <h3>Morning Ritual</h3>
+              <p>Start at Café Pascal (3 min walk) for the city's best croissants, then grab specialty coffee from Johan & Nyström.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="utensils"></i>
+              <h3>Lunch Favorites</h3>
+              <p>Meno Male for authentic Italian pasta or Lao Wai for modern Chinese cuisine - both within 5 minutes.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="wine"></i>
+              <h3>Evening Drinks</h3>
+              <p>Orangeriet offers waterfront views, while Brewdog serves the best craft beer selection in the area.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="map-pin"></i>
+              <h3>Hidden Spots</h3>
+              <p>Walk to City Hall gardens for sunset, or explore the secret courtyards behind Västerlånggatan in Old Town.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="shopping-bag"></i>
+              <h3>Local Shopping</h3>
+              <p>Hötorgshallen food market (15 min) for Swedish delicacies, or NK department store for premium Swedish design.</p>
+            </div>
+          </div>
+          
+          <div class="carousel-slide">
+            <div class="recommendation-card">
+              <i data-lucide="leaf"></i>
+              <h3>Nature Escape</h3>
+              <p>Tantolunden park (10 min) for BBQ spots and waterfront walks, perfect for summer evenings and picnics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Bathroom section integrated with page flow -->
+    <section class="bathroom-section">
+      <div class="bathroom-grid">
+        <img src="images/toilet-1.png" alt="Modern bathroom" class="bathroom-large" />
+        
+        <div class="bathroom-header">
+          <h2>PRISTINE<br>& MODERN</h2>
+          <p>Renovated 2017 • Scandinavian design • Everything new</p>
+        </div>
+        
+        <img src="images/toilet-2.png" alt="Bathroom details" class="bathroom-small" />
+        
+        <div class="bathroom-quote">
+          <blockquote>"The bathroom is spotless and the shower pressure is amazing!"</blockquote>
+          <p class="reviewer">— Sarah, New York</p>
+        </div>
+        
+        <div class="bathroom-features-grid">
+          <div class="bath-feature">
+            <i data-lucide="droplets"></i>
+            <h4>Rainfall Shower</h4>
+            <p>Luxurious water pressure</p>
+          </div>
+          <div class="bath-feature">
+            <i data-lucide="sparkles"></i>
+            <h4>Daily Cleaned</h4>
+            <p>Fresh & spotless</p>
+          </div>
+          <div class="bath-feature">
+            <i data-lucide="thermometer"></i>
+            <h4>Instant Hot Water</h4>
+            <p>Never wait for warmth</p>
+          </div>
+          <div class="bath-feature">
+            <i data-lucide="shirt"></i>
+            <h4>Premium Linens</h4>
+            <p>Soft fluffy towels</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Location section with street view -->
+    <section class="location-section" id="location">
+      <div class="location-header bg-black">
+        <h2>NEIGHBORHOOD</h2>
+        <p>Quiet street • Central location • Everything walkable</p>
+      </div>
+      
+      <div class="location-grid">
+        <img src="images/street.png" alt="Street view" class="street-image" />
+        <div class="map-container">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            frameborder="0" 
+            scrolling="no" 
+            src="https://www.openstreetmap.org/export/embed.html?bbox=18.027,59.332,18.037,59.337&amp;layer=mapnik&amp;marker=59.3345,18.032">
+          </iframe>
+        </div>
+        <div class="location-info">
+          <h3>Kungsholmen</h3>
+          <p>One of Stockholm's most desirable neighborhoods. Tree-lined streets, waterfront walks, and everything you need within walking distance.</p>
+          <div class="location-highlights">
+            <div class="highlight-item">
+              <i data-lucide="trees"></i>
+              <span>Green & quiet</span>
+            </div>
+            <div class="highlight-item">
+              <i data-lucide="waves"></i>
+              <span>Waterfront nearby</span>
+            </div>
+            <div class="highlight-item">
+              <i data-lucide="store"></i>
+              <span>Local shops</span>
+            </div>
+            <div class="highlight-item">
+              <i data-lucide="coffee"></i>
+              <span>Cafés everywhere</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- House rules mixed with final bedroom image -->
+    <div class="rules-bedroom">
+      <div class="rules-scattered">
+        <h3>House Rules</h3>
+        <div class="rule-item">
+          <span><i data-lucide="key"></i> CHECK-IN</span>
+          <p>15:00-22:00 • Self check-in with keybox</p>
+        </div>
+        <div class="rule-item">
+          <span><i data-lucide="leaf"></i> PATIO</span>
+          <p>Use freely • Lock inner door after</p>
+        </div>
+        <div class="rule-item">
+          <span><i data-lucide="moon"></i> QUIET</span>
+          <p>Respect 22:00-08:00 quiet hours</p>
+        </div>
+      </div>
+      <img src="images/bed-2.png" alt="Cozy bedroom" class="final-bedroom" />
+    </div>
+
+    <!-- Big final call to action -->
+    <section class="final-cta" id="book">
+      <div class="cta-content">
+        <h2>READY?</h2>
+        <p class="cta-text">Book your Stockholm experience</p>
+        <div class="cta-buttons">
+          <a href="mailto:daniel@lauding.se?subject=Stockholm%20Apartment%20Booking%20Inquiry" class="btn-main">EMAIL ME</a>
+          <a href="https://airbnb.com/h/daniellauding" target="_blank" class="btn-alt">AIRBNB</a>
+          <a href="https://www.svenskfast.se/bostadsratt/stockholm/stockholm/stockholm/kungsholmen/gambrinusgatan-2/330871?utm_source=booli&utm_medium=referral&utm_campaign=till-salu&utm_content=gambrinusgatan%2B2" target="_blank" class="btn-alt">VIEW LISTING</a>
+        </div>
+        <p class="response-time">Response within 24h • English/Swedish<br>
+        <small><a href="https://www.svenskfast.se/bostadsratt/stockholm/stockholm/stockholm/kungsholmen/gambrinusgatan-2/330871?utm_source=booli&utm_medium=referral&utm_campaign=till-salu&utm_content=gambrinusgatan%2B2" target="_blank">Also available for purchase via Svenskfast <i data-lucide="external-link"></i></a></small></p>
+      </div>
+    </section>
+
+    <!-- Casual footer -->
+    <footer class="footer">
+      <p>Stockholm Apartment Guide • Updated December 2025 • Made with ❤️ for guests</p>
+    </footer>
+
   </main>
 
-  <!-- Footer (contained) -->
-  <footer class="site__footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <strong>🍱 Drooly</strong>
-        <p class="muted">Simple, fast bento ideas. Built with HTML + CSS Grid/Flex.</p>
-      </div>
-      <nav class="footer__nav" aria-label="Footer links">
-        <a href="#featured">Featured</a>
-        <a href="#filters">Filters</a>
-        <a href="#grid">Recipes</a>
-      </nav>
-      <small>© 2025 Drooly Recipes · Placeholder content</small>
-    </div>
-  </footer>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
 </body>
 </html>
