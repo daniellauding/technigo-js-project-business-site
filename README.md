@@ -116,7 +116,7 @@ Had some fun with the CSS - that review slider took forever to get right (4 seco
 
 **CSS Optimization:**  
 - Applied DRY principles - consolidated similar section styles
-- Reduced mobile vertical spacing (64px → 32px, 96px → 48px gaps)
+- Reduced mobile vertical spacing
 - Created unified form styling system
 - Added focus states with blue accent color
 - Improved mobile responsiveness (form scales to 100% width)
