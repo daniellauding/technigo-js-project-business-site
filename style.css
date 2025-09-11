@@ -1,6 +1,7 @@
 /* ===================================
    RESET & BASE STYLES
    Starting fresh - clearing all the browser defaults
+   Following CSS best practices and DRY principles
    =================================== */
 * {
   margin: 0;
@@ -22,9 +23,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
+  width: 100%;
+  max-width: 100vw;
 }
 
-/* All the different heading styles - trying to keep it clean */
+/* ===================================
+   TYPOGRAPHY SYSTEM
+   Consistent heading hierarchy following clean code principles
+   =================================== */
 .typo-hero-title {
   font-size: 48px;
   font-weight: 600;
@@ -121,7 +127,6 @@ a {
 
 /* The big welcome section at the top */
 .hero-section {
-  margin-bottom: 64px;
 }
 
 .hero-image {
@@ -145,6 +150,7 @@ a {
 }
 
 .hero-tag {
+  display: inline-block;
   background: #1d1d1f;
   color: #f5f5f7;
   padding: 16px 32px;
@@ -154,6 +160,15 @@ a {
   text-transform: uppercase;
   border-radius: 980px;
   margin-bottom: 48px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-tag:hover {
+  background: #0071e3;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3);
 }
 
 .hero-text h2 {
@@ -243,95 +258,6 @@ a {
   flex-wrap: wrap;
 }
 
-/* The auto-scrolling recommendations - took forever to get this smooth! */
-.recommendations-carousel {
-  padding: 128px 64px;
-  margin-bottom: 128px;
-  overflow: hidden;
-}
-
-.carousel-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.carousel-header h2 {
-  font-size: 64px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  color: #1d1d1f;
-  letter-spacing: 0.009em;
-}
-
-.carousel-header p {
-  font-size: 19px;
-  color: #86868b;
-  font-weight: 400;
-}
-
-.carousel-container {
-  overflow: hidden;
-  padding: 64px 0;
-}
-
-.carousel-track {
-  display: flex;
-  animation: scroll 30s linear infinite;
-  width: calc(300px * 12);
-}
-
-.carousel-slide {
-  min-width: 300px;
-  padding: 0 16px;
-}
-
-.recommendation-card {
-  padding: 64px 48px;
-  text-align: center;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: opacity 0.3s ease;
-}
-
-.recommendation-card:hover {
-  opacity: 0.7;
-}
-
-.recommendation-card i {
-  font-size: 40px;
-  margin-bottom: 24px;
-  color: #000;
-}
-
-.recommendation-card h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #1d1d1f;
-}
-
-.recommendation-card p {
-  font-size: 15px;
-  line-height: 1.47059;
-  color: #6e6e73;
-  font-weight: 400;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-300px * 6));
-  }
-}
-
-/* Stops scrolling when you hover - nice touch */
-.carousel-container:hover .carousel-track {
-  animation-play-state: paused;
-}
 
 /* Guest reviews that rotate automatically - 6 reviews, 4 seconds each */
 .reviews-slider {
@@ -341,7 +267,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 18px;
+  border-radius: 32px;
 }
 
 .reviews-header {
@@ -552,93 +478,58 @@ a {
   margin-left: 8px;
 }
 
-/* Full list of all my Stockholm recommendations */
-.complete-recommendations {
-  margin-bottom: 96px;
+/* ===================================
+   LOCAL GEMS SECTION
+   Simplified list of curated Stockholm favorites
+   =================================== */
+
+/* Simplified gems list */
+.local-gems {
   background: #f5f5f7;
-  padding: 96px 64px;
+  padding: 40px 40px;
   border-radius: 32px;
 }
 
-.recommendations-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.recommendations-header h2 {
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  letter-spacing: 0.007em;
-  color: #1d1d1f;
-  text-transform: uppercase;
-}
-
-.recommendations-header p {
-  font-size: 24px;
-  font-weight: 400;
-  color: #86868b;
-}
-
-.recommendations-columns {
+.gems-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 64px;
-}
-
-.rec-column h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  display: flex;
-  align-items: center;
-  gap: 13px;
-  color: #1d1d1f;
-}
-
-.rec-column h3 i {
-  width: 24px;
-  height: 24px;
-}
-
-.rec-list {
-  display: flex;
-  flex-direction: column;
   gap: 32px;
+  margin: 0 auto;
 }
 
-.rec-list a {
+.gem-item {
   display: block;
   background: #ffffff;
   padding: 32px;
-  border-radius: 18px;
+  border-radius: 32px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   transition: transform 0.2s ease;
   text-decoration: none;
   color: #1d1d1f;
 }
 
-.rec-list a:hover {
+.gem-item:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
-.rec-list a strong {
+.gem-item strong {
   font-size: 19px;
+  display: block;
   font-weight: 600;
   color: #1d1d1f;
 }
 
-.rec-list a br + * {
+.gem-item br + * {
   color: #6e6e73;
   font-size: 16px;
   line-height: 1.47059;
   margin-top: 8px;
 }
 
+
 /* Bathroom showcase - going for that magazine spread look */
 .bathroom-section {
-  margin-bottom: 96px;
 }
 
 .bathroom-grid {
@@ -657,20 +548,20 @@ a {
   object-fit: cover;
 }
 
-.bathroom-header {
+.bathroom-subheader {
   grid-column: 2;
   grid-row: 1;
   background: #1d1d1f;
   color: #f5f5f7;
   padding: 48px;
-  border-radius: 18px;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
-.bathroom-header h2 {
+.bathroom-subheader h2 {
   font-size: 32px;
   font-weight: 600;
   margin-bottom: 16px;
@@ -679,7 +570,7 @@ a {
   text-transform: uppercase;
 }
 
-.bathroom-header p {
+.bathroom-subheader p {
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.03em;
@@ -739,10 +630,11 @@ a {
   height: 100%;
 }
 
-.bath-feature i {
+.bath-feature svg {
   width: 32px;
   height: 32px;
   margin-bottom: 16px;
+  display: block;
   color: #000000;
 }
 
@@ -775,10 +667,12 @@ a {
   font-weight: 500;
 }
 
-/* About me section - keeping it personal but professional */
+/* ===================================
+   HOST PROFILE SECTION
+   Personal connection while maintaining professionalism
+   =================================== */
 .host-profile {
-  padding: 128px 64px;
-  margin-bottom: 128px;
+  padding: 96px 64px;
 }
 
 .host-content {
@@ -796,8 +690,11 @@ a {
 
 .host-image img {
   width: 100%;
+  width: 300px;
   height: 300px;
-  border-radius: 50%;
+  max-height: 300px;
+  margin: 0 auto;
+  border-radius: 9999px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -824,7 +721,9 @@ a {
 }
 
 .host-links {
-  margin-top: 32px;
+  margin-top: 40px;
+  display: block;
+  overflow: hidden;
 }
 
 .host-link {
@@ -881,6 +780,16 @@ a {
   text-transform: uppercase;
 }
 
+.logo a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo a:hover {
+  opacity: 0.7;
+}
+
 .desktop-nav {
   display: none;
 }
@@ -912,9 +821,6 @@ a {
     font-size: 72px;
   }
 
-  .kitchen-header h2,
-  .workspace-title h2,
-  .location-header h2,
   .recommendations-header h2 {
     font-size: 56px;
   }
@@ -1029,13 +935,36 @@ a {
   color: #86868b;
 }
 
+
+.section-header {
+  text-align: center;
+  padding: 80px 64px;
+  border-radius: 32px;
+  color: #f5f5f7;
+}
+
+.section-header h2 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.007em;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.section-header p {
+  font-size: 24px;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
 /* Quick facts next to the entrance photo */
 .grid-section {
   display: grid;
   grid-template-columns: 2fr 1fr;
   min-height: 60vh;
   gap: 48px;
-  margin-bottom: 64px;
 }
 
 .image-large {
@@ -1063,7 +992,7 @@ a {
 .facts-block {
   padding: 96px 64px;
   background: #ffffff;
-  border-radius: 18px;
+  border-radius: 32px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.04);
 }
 
@@ -1100,7 +1029,6 @@ a {
   grid-template-columns: 1fr 1fr;
   min-height: 50vh;
   gap: 48px;
-  margin-bottom: 64px;
 }
 
 .room-feature {
@@ -1165,18 +1093,16 @@ a {
 
 /* Three boxes showing kitchen, workspace, entertainment */
 .amenities-scattered {
-  padding: 128px 64px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 96px;
-  margin-bottom: 96px;
 }
 
 .amenity-item {
   text-align: center;
   padding: 48px;
   background: #f5f5f7;
-  border-radius: 18px;
+  border-radius: 32px;
 }
 
 .amenity-icon {
@@ -1193,14 +1119,18 @@ a {
   color: #6e6e73;
 }
 
+.amenity-item p strong {
+  display: block;
+}
+
 /* FEEL AT HOME - big typography moment */
 .big-type {
   text-align: center;
   padding: 192px 64px;
   background: #1d1d1f;
   color: #f5f5f7;
-  border-radius: 40px;
-  margin: 64px 32px;
+  border-radius: 32px;
+  text-transform: uppercase;
 }
 
 .big-type h2 {
@@ -1211,33 +1141,12 @@ a {
   color: #f5f5f7;
 }
 
-/* Kitchen showcase - my favorite room honestly */
+/* ===================================
+   KITCHEN SECTION
+   Detailed room showcase with equipment grid
+   =================================== */
+
 .kitchen-section {
-  margin-bottom: 96px;
-}
-
-.kitchen-header {
-  text-align: center;
-  padding: 80px 64px;
-  border-radius: 32px;
-  margin-bottom: 64px;
-  color: #f5f5f7;
-}
-
-.kitchen-header h2 {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  line-height: 1.1;
-  letter-spacing: 0.009em;
-  word-break: break-word;
-}
-
-.kitchen-header p {
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
 }
 
 .kitchen-showcase {
@@ -1263,7 +1172,7 @@ a {
   background: #1d1d1f;
   color: #f5f5f7;
   padding: 48px;
-  border-radius: 18px;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1322,32 +1231,11 @@ a {
   color: #6e6e73;
 }
 
-/* Remote work setup - important for digital nomads */
+/* ===================================
+   WORKSPACE SECTION
+   Remote work setup optimized for digital nomads
+   =================================== */
 .workspace-section {
-  margin-bottom: 64px;
-}
-
-.workspace-title {
-  text-align: center;
-  padding: 64px 128px;
-  border-radius: 48px;
-  margin-bottom: 64px;
-  color: #f5f5f7;
-}
-
-.workspace-title h2 {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.007em;
-  line-height: 1.1;
-}
-
-.workspace-title p {
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
 }
 
 .workspace-grid {
@@ -1406,7 +1294,7 @@ a {
   background: #1d1d1f;
   color: #f5f5f7;
   padding: 64px;
-  border-radius: 18px;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1433,22 +1321,13 @@ a {
 
 /* Patio photos in a mosaic layout - summer vibes */
 .outdoor-scattered {
-  padding: 96px 64px;
-  margin-bottom: 64px;
-}
-
-.section-header {
-  font-size: 64px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 48px;
 }
 
 .outdoor-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 280px);
-  gap: 16px;
+  grid-template-rows: repeat(3, 280px);
+  gap: 32px;
   position: relative;
 }
 
@@ -1477,12 +1356,12 @@ a {
 }
 
 .patio-medium {
-  border-radius: 24px;
+  border-radius: 32px;
   overflow: hidden;
 }
 
 .patio-extra {
-  border-radius: 24px;
+  border-radius: 32px;
   overflow: hidden;
 }
 
@@ -1494,7 +1373,7 @@ a {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  border-radius: 18px;
+  border-radius: 32px;
 }
 
 .outdoor-text h3 {
@@ -1505,29 +1384,6 @@ a {
 
 /* Neighborhood info with map and street photo */
 .location-section {
-  margin-bottom: 96px;
-}
-
-.location-header {
-  text-align: center;
-  padding: 64px;
-  border-radius: 48px;
-  margin-bottom: 64px;
-  color: #f5f5f7;
-}
-
-.location-header h2 {
-  font-size: 48px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  letter-spacing: 0.007em;
-  text-transform: uppercase;
-}
-
-.location-header p {
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.05em;
 }
 
 .location-grid {
@@ -1622,7 +1478,6 @@ a {
   grid-template-columns: 1fr 1fr;
   min-height: 60vh;
   gap: 48px;
-  margin-bottom: 64px;
 }
 
 .rules-scattered {
@@ -1642,7 +1497,7 @@ a {
   background: #f5f5f7;
   padding: 32px;
   margin-bottom: 32px;
-  border-radius: 24px;
+  border-radius: 32px;
 }
 
 .rule-item span {
@@ -1663,8 +1518,7 @@ a {
   color: #f5f5f7;
   padding: 192px 64px;
   text-align: center;
-  border-radius: 40px;
-  margin: 64px 32px;
+  border-radius: 32px;
 }
 
 .cta-content h2 {
@@ -1702,6 +1556,8 @@ a {
 .btn-main {
   background: #0071e3;
   color: #ffffff;
+  text-align: center;
+  display: inline-block;
 }
 
 .btn-main:hover {
@@ -1726,9 +1582,183 @@ a {
   opacity: 0.8;
 }
 
+/* ===================================
+   INQUIRY FORM SECTION 
+   Week 3 addition - semantic form with validation
+   =================================== */
+.inquiry-form {
+  background: #ffffff;
+  color: #1d1d1f;
+  padding: 96px 64px;
+  text-align: center;
+  border-radius: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.form-content h2 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1d1d1f;
+  text-transform: uppercase;
+  letter-spacing: -0.009em;
+}
+
+.form-description {
+  font-size: 19px;
+  font-weight: 400;
+  margin-bottom: 48px;
+  color: #86868b;
+}
+
+/* Form layout and spacing */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 32px;
+}
+
+/* Labels - consistent with clean typography */
+.form-label,
+legend.form-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+/* Input fields - following Apple-style design */
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e5e5e7;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  background: #fbfbfd;
+  transition: all 0.2s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #0071e3;
+  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+  background: #ffffff;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #86868b;
+}
+
+/* Textarea specific */
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.47059;
+}
+
+/* Radio and checkbox groups */
+.radio-group,
+.checkbox-group {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.radio-options,
+.checkbox-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.radio-option,
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.radio-option:hover,
+.checkbox-option:hover {
+  background: rgba(0, 113, 227, 0.05);
+}
+
+.radio-option input,
+.checkbox-option input {
+  width: auto;
+  margin: 0;
+  cursor: pointer;
+}
+
+.radio-label,
+.checkbox-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1d1d1f;
+  cursor: pointer;
+}
+
+/* Form actions */
+.form-actions {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.form-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 40px;
+  background: #0071e3;
+  color: #ffffff;
+  border: none;
+  border-radius: 32px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  text-align: center;
+  justify-content: center;
+}
+
+.form-submit:hover {
+  background: #0077ed;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 113, 227, 0.3);
+}
+
+.form-submit [data-lucide] {
+  width: 18px;
+  height: 18px;
+  margin-right: 0;
+}
+
+.form-note {
+  font-size: 14px;
+  color: #86868b;
+  margin-top: 16px;
+  font-style: italic;
+}
+
 /* Simple footer with love */
 .footer {
-  background: #ffffff;
   padding: 64px;
   text-align: center;
   margin-top: 64px;
@@ -1746,40 +1776,6 @@ a {
 @media (min-width: 980px) {
   .burger {
     display: none;
-  }
-}
-
-/* ===================================
-   EXTRA WIDE SCREENS (1600px+)
-   For those with huge monitors - extra breathing room
-   =================================== */
-@media (min-width: 1600px) {
-  .hero-image,
-  .image-large,
-  .room-feature,
-  .workspace-img,
-  .map-container,
-  .kitchen-main,
-  .kitchen-detail,
-  .patio-hero,
-  .patio-main,
-  .patio-wide {
-    margin-left: -64px;
-    margin-right: -64px;
-  }
-  
-  .big-type,
-  .final-cta {
-    margin-left: -128px;
-    margin-right: -128px;
-  }
-  
-  .outdoor-grid {
-    gap: 24px;
-  }
-  
-  .food-grid {
-    gap: 64px;
   }
 }
 
@@ -1835,6 +1831,16 @@ a {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
   }
+
+  .grid-section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .host-content {
+    display: flex;
+    flex-direction: column;
+  }
   
   /* Amenities - 2 columns on tablet */
   .amenities-scattered {
@@ -1848,10 +1854,6 @@ a {
   
   .big-title h1 {
     font-size: 64px;
-  }
-  
-  .carousel-header h2 {
-    font-size: 80px;
   }
   
   .bento-header h2 {
@@ -1879,13 +1881,6 @@ a {
   .big-title .subtitle {
     font-size: 16px;
   }
-  
-  .carousel-header h2,
-  .bento-header h2,
-  .recommendations-header h2 {
-    font-size: 40px;
-  }
-  
   /* Kitchen header - prevent overflow */
   .kitchen-header h2 {
     font-size: 40px;
@@ -1920,7 +1915,6 @@ a {
   .big-type,
   .final-cta {
     padding: 64px 24px;
-    margin: 32px 0;
   }
   
   .hero-overlay {
@@ -1937,13 +1931,18 @@ a {
   }
   
   .header {
-    padding: 24px 12px;
+    padding: 24px 24px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   .header-content {
     width: 100%;
     max-width: none;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .logo {
@@ -1959,6 +1958,13 @@ a {
 @media (max-width: 767px) {
   body {
     padding: 0 12px;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
   }
   
   .burger {
@@ -1981,15 +1987,52 @@ a {
   .location-grid,
   .rules-bedroom {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
 
   .wrapper {
-    gap: 24px;
+    gap: 16px;
   }
 
-  .hero-section {
-    margin-bottom: 32px;
+  .hero-image,
+  .image-large,
+  .facts-block,
+  .room-feature,
+  .reviews-slider,
+  .amenity-item,
+  .big-type,
+  .section-header,
+  .kitchen-main,
+  .kitchen-detail,
+  .kitchen-equipment,
+  .kitchen-vibe,
+  .workspace-features,
+  .workspace-review,
+  .patio-main,
+  .workspace-main,
+  .workspace-detail,
+  .workspace-extra,
+  .outdoor-text,
+  .patio-small,
+  .patio-tall,
+  .patio-medium,
+  .patio-wide,
+  .patio-extra,
+  .local-gems,
+  .gem-item,
+  .bathroom-large,
+  .bathroom-small,
+  .bathroom-quote,
+  .bath-feature,
+  .street-image,
+  .location-info,
+  .map-container,
+  .rules-scattered,
+  .rule-item,
+  .final-bedroom,
+  .final-cta,
+  .inquiry-form {
+    border-radius: 16px;
   }
   
   .location-grid {
@@ -1997,15 +2040,19 @@ a {
   }
   
   .workspace-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto;
-    gap: 32px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 16px;
     min-height: auto;
+  }
+
+  .section-header {
+    border-radius: 16px;
   }
   
   /* Workspace section mobile */
   .workspace-section {
-    margin-bottom: 48px;
+    
   }
   
   .workspace-title {
@@ -2020,13 +2067,14 @@ a {
   
   .workspace-review {
     padding: 32px 24px;
+    grid-column-start: 1;
+    grid-column-end: 3;
   }
   
   /* Amenities - reduce padding on mobile */
   .amenities-scattered {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 48px 16px;
   }
   
   .amenity-item {
@@ -2042,13 +2090,6 @@ a {
   
   /* Kitchen section - tighter mobile */
   .kitchen-section {
-    margin-bottom: 48px;
-  }
-  
-  .kitchen-header {
-    padding: 48px 24px;
-    border-radius: 24px;
-    margin-bottom: 32px;
   }
   
   .kitchen-showcase {
@@ -2080,7 +2121,7 @@ a {
   .outdoor-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 220px);
-    gap: 12px;
+    gap: 16px;
   }
   
   .patio-main,
@@ -2097,7 +2138,7 @@ a {
 
   /* Host profile - tighter mobile layout */
   .host-profile {
-    padding: 64px 16px;
+    padding: 48px 16px;
   }
   
   .host-content {
@@ -2109,36 +2150,18 @@ a {
   .host-image img {
     max-width: 200px;
     height: 200px;
-    margin: 0 auto;
   }
 
-  /* Carousel mobile */
-  .recommendations-carousel {
-    padding: 64px 16px;
-    margin-bottom: 64px;
-  }
-  
-  .carousel-slide {
-    min-width: 280px;
-  }
-  
-  .carousel-track {
-    width: calc(280px * 12);
-  }
-  
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(-280px * 6));
-    }
-  }
 
   /* Bento grid mobile */
   .bento-grid-section {
-    padding: 64px 16px;
-    margin-bottom: 64px;
+    padding: 48px 16px;
+    margin-bottom: 48px;
+  }
+
+  .workspace-features {
+    grid-column-end: 3;
+    grid-column-start: 1;    
   }
   
   .bento-grid {
@@ -2151,35 +2174,30 @@ a {
     grid-column: span 1;
   }
 
-  /* Complete recommendations mobile */
-  .recommendations-columns {
-    grid-template-columns: 1fr;
-    gap: 48px;
-  }
-  
-  .complete-recommendations {
+  /* Local gems mobile */
+  .local-gems {
     padding: 48px 16px;
-    border-radius: 24px;
   }
   
-  .rec-list a {
+  .gems-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .gem-item {
     padding: 24px;
   }
-  
+
   /* Bathroom section mobile fixes */
   .bathroom-section {
     margin-bottom: 48px;
   }
   
   .bathroom-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     min-height: auto;
-  }
-  
-  .bathroom-header {
-    padding: 32px 24px;
   }
   
   .bathroom-quote {
@@ -2196,12 +2214,6 @@ a {
   }
   
   /* Tighter spacing on mobile */
-  .image-large,
-  .room-feature,
-  .workspace-img,
-  .map-container {
-    margin-bottom: 24px;
-  }
 
   .map-container {
     height: 400px;
@@ -2232,12 +2244,6 @@ a {
   
   /* Location section mobile */
   .location-section {
-    margin-bottom: 48px;
-  }
-  
-  .location-header {
-    padding: 48px 24px;
-    border-radius: 24px;
   }
   
   .location-info {
@@ -2256,18 +2262,9 @@ a {
     margin: 16px 0;
   }
   
-  /* Big sections mobile */
+  /* Override for big-type - less padding */
   .big-type {
-    padding: 96px 24px;
-    border-radius: 32px;
-    margin: 32px 8px;
-  }
-  
-  /* Final CTA mobile */
-  .final-cta {
-    padding: 96px 24px;
-    border-radius: 32px;
-    margin: 32px 8px;
+    padding: 48px 24px;
   }
   
   /* Reviews slider mobile */
@@ -2277,7 +2274,6 @@ a {
   
   /* Outdoor section mobile */
   .outdoor-scattered {
-    padding: 48px 16px;
   }
   
   .outdoor-grid {
@@ -2290,14 +2286,11 @@ a {
   }
   
   .big-title {
-    padding: 96px 24px 64px;
+    padding: 48px 24px 32px;
+    margin-bottom: 32px;
   }
   
   .typo-hero-title {
-    font-size: 48px;
-  }
-  
-  .carousel-header h2 {
     font-size: 48px;
   }
   
@@ -2315,5 +2308,45 @@ a {
   
   .cta-content h2 {
     font-size: 64px;
+  }
+  
+  /* Mobile form styles */
+  .inquiry-form {
+    padding: 48px 24px;
+    border-radius: 24px;
+    margin: 0 8px;
+  }
+  
+  .form-content h2 {
+    font-size: 32px;
+  }
+  
+  .form-description {
+    font-size: 16px;
+  }
+  
+  .contact-form {
+    max-width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-input,
+  .form-textarea {
+    padding: 14px 16px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  .radio-options,
+  .checkbox-options {
+    gap: 12px;
+  }
+  
+  .form-submit {
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 16px;
   }
 }

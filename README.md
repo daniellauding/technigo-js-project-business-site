@@ -45,24 +45,47 @@ Started by gathering all the good stuff - photos of every corner, guest reviews 
 - Bathroom (renovated 2017, still looks fresh)
 - The neighborhood vibe
 - Booking options (email, Airbnb, or buy it!)
+- **NEW: Inquiry form** (Week 3 addition) - Contact form with validation
 
 ## Project requirements ✅
 
-Had to tick these boxes for the course:
-
+**Week 1-2 requirements:**
 - Responsive from 320px to 1600px ✓
-- Navigation that works on mobile & desktop ✓
+- Navigation that works on mobile & desktop ✓  
 - CSS Grid used ✓
 - Flexbox too ✓
 - Different column layouts for different screens ✓
 
-## What's next (weeks 2-3)
+**Week 3 requirements (Forms & Clean Code):**
+- Hero image/video header ✓
+- Signup form with 3+ different input types ✓
+  - Text fields (name, visit dates) ✓
+  - Email field ✓  
+  - Radio buttons (guest count) ✓
+  - Checkboxes (interests) ✓
+  - Textarea (message) ✓
+  - Submit button ✓
+- Form posts to `https://httpbin.org/anything` ✓
+- Fully responsive form ✓
+- Clean code practices applied ✓
 
-Thinking about adding:
+## Week 3 Progress ✅
 
-- Clean up content, layout and css
+**Completed tasks for HTML Forms & Clean Code:**
+
+- **Added Inquiry Form Section**: A complete contact form with 3+ input types (text, email, textarea, radio buttons, checkboxes)
+- **Form Validation Ready**: Form posts to `https://httpbin.org/anything` for testing
+- **Mobile Spacing Optimization**: Reduced excessive vertical gaps on mobile for better UX  
+- **CSS Cleanup**: Applied DRY principles, consolidated similar styles, removed redundant code
+- **Semantic HTML**: Added meaningful comments throughout for better code readability
+- **Responsive Form**: Fully responsive form that looks great 320px-1600px+
+- **Clean Code Practices**: Following best practices from research on modern form validation
+
+## What's next
+
+Still thinking about:
 - A proper booking form (maybe connect to a calendar?)
-- Form that actually sends emails
+- Form that actually sends emails  
 - Make it even smoother with transitions
 - Compress those images (they're huge right now)
 - Fix some icons that don't exist in Lucide (like refrigerator)
@@ -82,7 +105,39 @@ The Apple style update really made a difference - those subtle grays (#86868b fo
 
 Had some fun with the CSS - that review slider took forever to get right (4 seconds per review, 6 reviews total). The carousel is infinite scroll which is pretty satisfying.
 
+## Changes Made (Week 3)
+
+**HTML Improvements:**
+- Added semantic inquiry form section after final CTA
+- Used proper form elements: `<fieldset>`, `<legend>`, `<label>`, `<input>`, `<textarea>`
+- Added `autocomplete` attributes for better UX
+- Used `novalidate` to handle custom validation
+- Added semantic HTML comments throughout
+
+**CSS Optimization:**  
+- Applied DRY principles - consolidated similar section styles
+- Reduced mobile vertical spacing (64px → 32px, 96px → 48px gaps)
+- Created unified form styling system
+- Added focus states with blue accent color
+- Improved mobile responsiveness (form scales to 100% width)
+- Organized CSS with clear section headers
+
+**Form Features:**
+- Name and email validation (required fields)
+- Guest count selection (radio buttons)  
+- Interest checkboxes (short stay, extended stay, purchase)
+- Message textarea with placeholder guidance
+- Responsive submit button with hover effects
+- Posts structured data to HTTPbin for testing
+
+**Clean Code Practices:**
+- Meaningful CSS class names (`.inquiry-form`, `.form-group`)
+- Consistent naming conventions (kebab-case)  
+- Removed redundant styles
+- Clear section organization
+- Semantic HTML structure
+
 ---
 
-Built in Lund with lots of coffee ☕
-December 2025
+Built in Lund with lots of coffee ☕  
+Updated September 2025 with Week 3 progress
