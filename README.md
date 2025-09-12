@@ -101,7 +101,7 @@ Super simple:
 
 ## Notes to self
 
-The Apple style update really made a difference - those subtle grays (#86868b for muted text) and the cleaner font weights. Also that blue (#0071e3) for the main button pops nicely.
+The Apple style update really made a difference - those subtle grays (#86868b for muted text) and the cleaner font weights. Also that blue (#000000) for the main button pops nicely.
 
 Had some fun with the CSS - that review slider took forever to get right (4 seconds per review, 6 reviews total). The carousel is infinite scroll which is pretty satisfying.
 

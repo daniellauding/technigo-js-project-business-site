@@ -15,7 +15,7 @@ body {
   color: #1d1d1f;
   background: #fbfbfd;
   overflow-x: hidden;
-  padding: 0 16px;
+  padding: 0 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
@@ -168,10 +168,14 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
   z-index: 100;
-  padding: 32px 48px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  padding: 16px 48px;
+  background: linear-gradient(0deg, rgb(251 251 253) 0%, rgba(255, 255, 255, 0) 100%);
+  backdrop-filter: blur(6px);
+}
+
+.desktop-nav a {
+  background: #f5f5f7;
 }
 
 .header-content {
@@ -271,26 +275,35 @@ a {
 /* Main Layout */
 .wrapper {
   padding-top: 112px;
-  width: 100%;
-  max-width: 1400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 64px;
 }
 
+/* Main Layout */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+
 /* Section Headers - Unified styling for all major sections */
 .section-header {
   text-align: center;
-  padding: 80px 64px;
+  padding: 0 64px;
   border-radius: 32px;
-  color: #f5f5f7;
+  color: rgba(0, 0, 0, 0.5);
+  width: fit-content;
+  margin: 20px auto 0;
 }
 
 .section-header h2 {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-size: 10px;
+  font-weight: 800;
+  margin-bottom: 4px;
   text-transform: uppercase;
   letter-spacing: 0.007em;
   line-height: 1.1;
@@ -298,9 +311,86 @@ a {
 }
 
 .section-header p {
+  color: rgba(0, 0, 0, 1);
   font-size: 24px;
   font-weight: 300;
   letter-spacing: 0.05rem;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.section-header p:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.section-header p:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.section-header p:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Loop animation for section headers - only one visible at a time */
+.section-header p {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  text-align: center;
+  animation: fadeInUpLoop 9s ease-in-out infinite;
+  opacity: 0;
+}
+
+.section-header {
+  position: relative;
+  min-height: 40px;
+}
+
+.section-header p:nth-child(2) {
+  animation-delay: 0s;
+}
+
+.section-header p:nth-child(3) {
+  animation-delay: 3s;
+}
+
+.section-header p:nth-child(4) {
+  animation-delay: 6s;
+}
+
+@keyframes fadeInUpLoop {
+  0%, 10% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  15%, 25% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  30%, 100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
 }
 
 /* Hero Section - Big impact, beautiful imagery */
@@ -327,6 +417,8 @@ a {
 }
 
 .hero-section {
+  position: sticky;
+  top: 80px;
 }
 
 .hero-image {
@@ -335,6 +427,14 @@ a {
   min-height: 500px;
   overflow: hidden;
   border-radius: 32px;
+  transform: translateY(0);
+  transition: transform 0.1s ease-out;
+}
+
+.hero-image img {
+  transform: translateY(0);
+  transition: transform 0.1s ease-out;
+  will-change: transform;
 }
 
 .hero-overlay {
@@ -366,7 +466,7 @@ a {
 }
 
 .hero-tag:hover {
-  background: #0071e3; /* Nice blue hover - feels premium */
+  background: #000000; /* Nice blue hover - feels premium */
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 113, 227, 0.3);
 }
@@ -388,12 +488,26 @@ a {
   text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
+#about {
+  background: #fbfbfd;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 2;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 110px;
+  height: 70vh;
+  min-height: 500px;
+  overflow: auto;
+}
+
 /* Grid Sections - Facts and quick info */
 .grid-section {
   display: grid;
   grid-template-columns: 2fr 1fr;
   min-height: 60vh;
-  gap: 48px;
+  gap: 32px;
+  height: 100%;
 }
 
 .image-large {
@@ -419,10 +533,11 @@ a {
 }
 
 .facts-block {
-  padding: 96px 64px;
-  background: #ffffff;
   border-radius: 32px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  box-shadow: none;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
 }
 
 .facts-block h2 {
@@ -437,19 +552,42 @@ a {
   list-style: none;
   font-size: 18px;
   line-height: 2;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  height: 100%;
 }
 
 .fact-list li {
-  padding: 24px 32px;
   margin-bottom: 16px;
   font-weight: 500;
-  background: #f5f5f7;
   border-radius: 12px;
-  color: #1d1d1f;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #000;
+  height: 100%;
 }
 
 .fact-list li:last-child {
   margin-bottom: 0;
+}
+
+#rooms {
+  background: #fbfbfd;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  z-index: 3;
+  position: sticky;
+  top: 140px;
+  height: 70vh;
+  min-height: 500px;
+  overflow: auto;
 }
 
 /* Content Mix - Images with overlays and quotes */
@@ -457,6 +595,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 50vh;
+  height: 100%;
   gap: 48px;
 }
 
@@ -619,6 +758,18 @@ a {
   color: #ffffff;
 }
 
+#amenities {
+  background: #fbfbfd;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  z-index: 3;
+  position: sticky;
+  top: 170px;
+  overflow: auto;
+}
+
 /* Amenities - What makes this place special */
 .amenities-scattered {
   display: grid;
@@ -651,6 +802,18 @@ a {
   display: block;
 }
 
+#greeting {
+  background: #fbfbfd;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  z-index: 3;
+  position: sticky;
+  top: 200px;
+  overflow: auto;
+}
+
 /* Big Type - Statement typography moments */
 .big-type {
   text-align: center;
@@ -669,6 +832,17 @@ a {
   color: #f5f5f7;
 }
 
+#host {
+  background: #fbfbfd;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 230px;
+  overflow: auto;
+}
+
 /* Host Profile - Personal connection with guests */
 .host-profile {
   padding: 96px 64px;
@@ -685,30 +859,45 @@ a {
 
 .host-image {
   text-align: center;
+  border: 20px solid #fff;
+  box-shadow: 0px 2px 0px rgba(0,0,0,0.1);
 }
 
 .host-image img {
   width: 100%;
   width: 300px;
-  height: 300px;
+  height: 400px;
   max-height: 300px;
   margin: 0 auto;
-  border-radius: 9999px; /* Perfect circle - classic and friendly */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.host-image h5 {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #1d1d1f;
+  background: #f5f5f7;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 32px;
+  width: fit-content;
+  padding: 4px 16px;
+  margin: -16px auto 0;
 }
 
 .host-info h3 {
   font-size: 40px;
   font-weight: 600;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   color: #1d1d1f;
 }
 
 .host-info h4 {
-  font-size: 21px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 32px;
-  color: #86868b;
+  margin-bottom: 8px;
+  color: #000;
   letter-spacing: 0.05em;
 }
 
@@ -744,16 +933,34 @@ a {
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
+#kitchen {
+  background: #fbfbfd;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 260px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
+}
+
 /* Kitchen - Heart of the apartment */
 .kitchen-section {
+  height: 100%;
 }
 
 .kitchen-showcase {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 40% 1fr;
   gap: 32px;
-  min-height: 70vh;
+  height: 100%;
 }
 
 .kitchen-main {
@@ -829,6 +1036,18 @@ a {
   font-weight: 400;
   color: #6e6e73;
 }
+
+#workspace {
+  background: #fbfbfd;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 290px;
+  overflow: auto;
+}
+
 
 /* Workspace - Perfect for remote work */
 .workspace-section {
@@ -1309,25 +1528,41 @@ a {
   letter-spacing: 0.2em;
 }
 
-.btn-main, .btn-alt {
-  padding: 32px 64px;
-  font-weight: 600;
-  font-size: 19px;
+.btn-primary, .btn-alt {
+
   letter-spacing: -0.01em;
   transition: all 0.3s ease;
   border-radius: 48px;
 }
 
-.btn-main {
-  background: #0071e3;
+.btn-sm {
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.btn-md {
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+
+.btn-lg {
+  padding: 32px 64px;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.btn-primary {
+  background: #000000;
   color: #ffffff;
   text-align: center;
   display: inline-block;
 }
 
-.btn-main:hover {
-  background: #0077ed;
-  transform: translateY(-2px);
+.btn-primary:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .btn-alt {
@@ -1408,7 +1643,7 @@ legend.form-label {
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #0071e3;
+  border-color: #000000;
   box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
   background: #ffffff;
 }
@@ -1480,7 +1715,7 @@ legend.form-label {
   align-items: center;
   gap: 12px;
   padding: 20px 40px;
-  background: #0071e3;
+  background: #000000;
   color: #ffffff;
   border: none;
   border-radius: 32px;
@@ -1495,7 +1730,7 @@ legend.form-label {
 }
 
 .form-submit:hover {
-  background: #0077ed;
+  background: rgba(0, 0, 0, 0.7);
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(0, 113, 227, 0.3);
 }
@@ -1511,6 +1746,113 @@ legend.form-label {
   color: #86868b;
   margin-top: 16px;
   font-style: italic;
+}
+
+/* Scrolling Local Gems - Flex layout with real gems */
+.scrolling-gems {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #f5f5f7;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.scrolling-gems-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.scrolling-gems-track {
+  display: flex;
+  gap: 24px;
+  width: 200%; /* Double width for seamless loop */
+  padding: 0 40px;
+  margin-bottom: 32px;
+}
+
+/* Odd tracks animate left to right */
+.track-1,
+.track-3 {
+  animation: scrollGemsLeft 60s linear infinite;
+}
+
+/* Even tracks animate right to left */
+.track-2,
+.track-4 {
+  animation: scrollGemsRight 60s linear infinite;
+}
+
+/* Pause animation on hover */
+.scrolling-gems-track:hover {
+  animation-play-state: paused;
+}
+
+/* Different animation delays for staggered effect */
+.track-1 {
+  animation-delay: 0s;
+}
+
+.track-2 {
+  animation-delay: -15s;
+}
+
+.track-3 {
+  animation-delay: -30s;
+}
+
+.track-4 {
+  animation-delay: -45s;
+}
+
+.scrolling-gems .gem-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #ffffff;
+  padding: 24px 32px;
+  border-radius: 32px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  color: #1d1d1f;
+  min-height: 120px;
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+.scrolling-gems .gem-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.scrolling-gems .gem-item strong {
+  font-size: 19px;
+  display: block;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+}
+
+@keyframes scrollGemsLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollGemsRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Footer */
@@ -1537,7 +1879,7 @@ legend.form-label {
   }
   
   .desktop-nav a {
-    margin-left: 48px;
+    margin-left: 16px;
     color: #1d1d1f;
     font-weight: 400;
     transition: all 0.2s ease;
@@ -1548,7 +1890,7 @@ legend.form-label {
   }
   
   .desktop-nav a:hover {
-    background: #f5f5f7;
+    background: #dfdfe2;
     color: #1d1d1f;
   }
 
@@ -1616,6 +1958,21 @@ legend.form-label {
   .big-title h1 {
     font-size: 64px;
   }
+  
+  /* Scrolling gems tablet adjustments */
+  .scrolling-gems-track {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .gem-item-scroll {
+    min-height: 180px;
+  }
+  
+  .gem-item-scroll img {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 /* Small Mobile - iPhone SE and tiny screens */
@@ -1666,7 +2023,7 @@ legend.form-label {
     padding: 32px 24px;
   }
   
-  .btn-main, .btn-alt {
+  .btn-primary, .btn-alt {
     padding: 20px 32px;
     font-size: 14px;
   }
@@ -1688,6 +2045,37 @@ legend.form-label {
   
   .logo {
     font-size: 15px;
+  }
+  
+  /* Scrolling gems small mobile adjustments */
+  .scrolling-gems {
+    padding: 32px 0;
+  }
+  
+  .scrolling-gems-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 16px;
+  }
+  
+  .gem-item-scroll {
+    padding: 12px;
+    min-height: 140px;
+    gap: 8px;
+  }
+  
+  .gem-item-scroll img {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+  }
+  
+  .gem-content strong {
+    font-size: 14px;
+  }
+  
+  .gem-content span {
+    font-size: 11px;
   }
 }
 
@@ -1717,6 +2105,10 @@ legend.form-label {
   .header-content {
     overflow: visible;
   }
+
+  .content-mix {
+    grid-template-rows: min-content;
+  }
   
   .grid-section,
   .content-mix,
@@ -1730,7 +2122,6 @@ legend.form-label {
     gap: 16px;
   }
 
-  .hero-image,
   .image-large,
   .facts-block,
   .room-feature,
@@ -1912,17 +2303,37 @@ legend.form-label {
     padding: 24px;
     margin-bottom: 16px;
   }
+
+  #about {
+    border: 16px solid #fff;
+    top: 90px;
+  }
   
   .facts-block {
-    padding: 48px 32px;
+    /* padding: 0 0 16px; */
+  }
+
+  .facts-block h2 {
+    display: none;
   }
   
   .fact-list li {
     padding: 16px 24px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  #rooms {
+    border: 16px solid #fff;
+    top: 116px;
   }
 
   .room-info {
     display: none; /* Hide overlay text on mobile - too cluttered */
+  }
+
+  .rating-number {
+    font-size: 16px;
   }
   
   .location-info {
@@ -1938,9 +2349,46 @@ legend.form-label {
   .big-type {
     padding: 48px 24px;
   }
+
+  .overall-rating {
+    flex-direction: row;
+    padding:0 32px;
+  }
+
+  .stars-display {
+    margin: 0 auto;
+  }
+
+  .reviews-container {
+    min-height: none;
+    flex: 1;
+  }
+
+  .stars-display [data-lucide] {
+    width: 12px;
+    height: 12px;
+    margin: 0;
+  }
+
+  .reviews-header {
+    margin-bottom: 8px;
+  }
   
   .reviews-slider {
-    padding: 48px 24px;
+    padding: 24px 16px;
+  }
+  
+  .review-count {
+    font-size: 12px;
+  }
+
+  .review-slide blockquote {
+    font-size: 16px;
+    margin-bottom: 8;
+  }
+
+  .review-slide .reviewer {
+    font-size: 12px;
   }
   
   .outdoor-grid {
@@ -2006,5 +2454,36 @@ legend.form-label {
     width: 100%;
     padding: 18px 24px;
     font-size: 16px;
+  }
+  
+  /* Scrolling gems mobile adjustments */
+  .scrolling-gems {
+    padding: 40px 0;
+  }
+  
+  .scrolling-gems-track {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 0 20px;
+  }
+  
+  .gem-item-scroll {
+    padding: 16px;
+    min-height: 160px;
+    gap: 12px;
+  }
+  
+  .gem-item-scroll img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+  }
+  
+  .gem-content strong {
+    font-size: 16px;
+  }
+  
+  .gem-content span {
+    font-size: 12px;
   }
 }
