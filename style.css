@@ -23,11 +23,33 @@ body {
   max-width: 100vw;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: -90px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(images/bg.jpg) no-repeat center top / cover;
+  opacity: 0.6;
+  filter: saturate(0.5);
+  z-index: -1;
+}
+
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+div {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+div::-webkit-scrollbar { 
+  display: none; /* Chrome, Safari */
 }
 
 a {
@@ -42,7 +64,6 @@ a {
   line-height: 1.0625;
   letter-spacing: -0.009em;
   color: #1d1d1f;
-  text-transform: uppercase;
 }
 
 .typo-section-title {
@@ -53,10 +74,34 @@ a {
 }
 
 .typo-subtitle {
-  font-size: 19px;
-  font-weight: 400;
-  letter-spacing: -0.022em;
-  color: #86868b;
+  position: relative;
+  min-height: 40px;
+}
+
+
+/* Loop animation for section headers - only one visible at a time */
+.typo-subtitle p {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  text-align: center;
+  animation: fadeInUpLoop 9s ease-in-out infinite;
+  opacity: 0;
+  font-size: 70px;
+  font-weight: 100;
+}
+
+.typo-subtitle p:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typo-subtitle p:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.typo-subtitle p:nth-child(3) {
+  animation-delay: 6s;
 }
 
 .typo-heading-large {
@@ -64,6 +109,49 @@ a {
   font-weight: 600;
   letter-spacing: 0.009em;
   color: #1d1d1f;
+}
+
+.circle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: jump 1s ease-in-out infinite;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #eee;
+  text-decoration: none;
+  cursor: pointer;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%) translateY(20px);
+  bottom: -120px;
+  z-index: 1;
+  position: absolute;
+}
+
+.circle-btn i,
+.circle-btn svg {
+  display: block;
+  line-height: 0;
+  margin: 0;
+}
+
+
+.circle-btn:hover i {
+  animation-play-state: paused;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  30% {
+    transform: translateY(-6px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(2px) translateX(-50%);
+  }
 }
 
 .typo-heading-medium {
@@ -310,46 +398,6 @@ a {
   word-break: break-word;
 }
 
-.section-header p {
-  color: rgba(0, 0, 0, 1);
-  font-size: 24px;
-  font-weight: 300;
-  letter-spacing: 0.05rem;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-}
-
-.section-header p:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.section-header p:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-.section-header p:nth-child(4) {
-  animation-delay: 0.6s;
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  20% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-
 /* Loop animation for section headers - only one visible at a time */
 .section-header p {
   position: absolute;
@@ -396,8 +444,9 @@ a {
 /* Hero Section - Big impact, beautiful imagery */
 .big-title {
   text-align: center;
-  padding: 192px 64px 128px;
-  margin-bottom: 64px;
+  padding: 192px 64px 80px;
+  margin-bottom: 32px;
+  position: relative;
 }
 
 .big-title h1 {
@@ -405,7 +454,7 @@ a {
   font-weight: 600;
   line-height: 1.0625;
   letter-spacing: -0.009em;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
   color: #1d1d1f;
 }
 
@@ -554,14 +603,14 @@ a {
   line-height: 2;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 32px;
   height: 100%;
 }
 
 .fact-list li {
   margin-bottom: 16px;
   font-weight: 500;
-  border-radius: 12px;
+  border-radius: 32px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -577,7 +626,7 @@ a {
 }
 
 #rooms {
-  background: #fbfbfd;
+  background: #fff;
   border-radius: 32px;
   border: 32px solid #fff;
   z-index: 3;
@@ -596,7 +645,7 @@ a {
   grid-template-columns: 1fr 1fr;
   min-height: 50vh;
   height: 100%;
-  gap: 48px;
+  gap: 32px;
 }
 
 .room-feature {
@@ -759,7 +808,7 @@ a {
 }
 
 #amenities {
-  background: #fbfbfd;
+  background: #fff;
   border-radius: 32px;
   border: 32px solid #fff;
   z-index: 3;
@@ -774,7 +823,7 @@ a {
 .amenities-scattered {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 96px;
+  gap: 32px;
 }
 
 .amenity-item {
@@ -805,7 +854,7 @@ a {
 #greeting {
   background: #fbfbfd;
   border-radius: 32px;
-  border: 32px solid #fff;
+  /* border: 32px solid #fff; */
   z-index: 3;
   box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
   z-index: 3;
@@ -821,7 +870,6 @@ a {
   background: #1d1d1f;
   color: #f5f5f7;
   border-radius: 32px;
-  text-transform: uppercase;
 }
 
 .big-type h2 {
@@ -833,7 +881,7 @@ a {
 }
 
 #host {
-  background: #fbfbfd;
+  background: #fff;
   border-radius: 32px;
   border: 32px solid #fff;
   z-index: 3;
@@ -860,7 +908,9 @@ a {
 .host-image {
   text-align: center;
   border: 20px solid #fff;
-  box-shadow: 0px 2px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+  transform: rotate(-5deg) translateX(-60px) translateY(-10px);
+  scale: 1.3;
 }
 
 .host-image img {
@@ -934,7 +984,7 @@ a {
 }
 
 #kitchen {
-  background: #fbfbfd;
+  background: #fff;
   border-radius: 32px;
   border: 32px solid #fff;
   z-index: 3;
@@ -993,10 +1043,12 @@ a {
   line-height: 1.2;
 }
 
-.equipment-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+.kitchen-equipment blockquote {
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
 }
 
 .equip-item {
@@ -1015,30 +1067,50 @@ a {
 .kitchen-vibe {
   grid-column: span 2;
   background: #ffffff;
-  padding: 64px;
+  padding: 32px;
   border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.kitchen-vibe blockquote {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  line-height: 1.2;
-  color: #1d1d1f;
+.kitchen-vibe p {
+  font-size: 54px;
+  line-height: 1.47059;
+  font-weight: 800;
+  color: #000;
+  text-align: justify;
 }
 
-.kitchen-vibe p {
-  font-size: 19px;
-  line-height: 1.47059;
-  font-weight: 400;
-  color: #6e6e73;
+.kitchen-icons {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px;
+  place-items: center;
+}
+
+.kitchen-icons .icon {
+  background-color: #fbfbfd;
+  border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.kitchen-icons i,
+.kitchen-icons svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+  color: #0f0f0f;
+
 }
 
 #workspace {
-  background: #fbfbfd;
+  background: #fff;
   border-radius: 32px;
   border: 32px solid #fff;
   z-index: 3;
@@ -1046,19 +1118,25 @@ a {
   position: sticky;
   top: 290px;
   overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
 }
 
 
 /* Workspace - Perfect for remote work */
 .workspace-section {
+  height: 100%;
 }
 
 .workspace-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 2fr 30%;
   gap: 32px;
-  min-height: 80vh;
+  height: 100%;
 }
 
 .workspace-main {
@@ -1078,12 +1156,16 @@ a {
 }
 
 .workspace-features {
-  background: #ffffff;
+  background: #fbfbfd;
+  height: 100%;
   padding: 64px;
+  grid-row-start: 1;
   border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  grid-row-end: 3;
+  grid-column-start: 2;
 }
 
 .feature-list {
@@ -1113,6 +1195,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  grid-column-end: 3;
+  grid-column-start: 1;
 }
 
 .workspace-review .stars {
@@ -1132,6 +1216,23 @@ a {
 .workspace-review .reviewer {
   font-weight: 500;
   font-size: 18px;
+}
+
+#outdoor {
+  background: #fff;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 320px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
 }
 
 /* Outdoor - Summer vibes and fresh air */
@@ -1197,6 +1298,23 @@ a {
   margin-bottom: 16px;
 }
 
+#gems {
+  background: #fff;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 350px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
+}
+
 /* Local Gems - Stockholm favorites from your host */
 .local-gems {
   background: #f5f5f7;
@@ -1241,6 +1359,23 @@ a {
   margin-top: 8px;
 }
 
+#bathroom {
+  background: #fff;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 380px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
+}
+
 /* Bathroom - Clean, modern, spotless */
 .bathroom-section {
 }
@@ -1267,7 +1402,7 @@ a {
   background: #1d1d1f;
   color: #f5f5f7;
   padding: 48px;
-  border-radius: 16px;
+  border-radius: 32px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1300,7 +1435,7 @@ a {
 .bathroom-quote {
   grid-column: 2 / span 2;
   grid-row: 2;
-  background: #ffffff;
+  background: #000;
   padding: 48px;
   border-radius: 32px;
   display: flex;
@@ -1309,18 +1444,18 @@ a {
 }
 
 .bathroom-quote blockquote {
-  font-size: 29px;
+  font-size: 42px;
   font-weight: 500;
   font-style: normal;
   margin-bottom: 16px;
   line-height: 1.38105;
-  color: #1d1d1f;
+  color: #fff;
 }
 
 .bathroom-quote .reviewer {
   font-size: 16px;
   font-weight: 500;
-  color: #86868b;
+  color: #fff;
 }
 
 .bathroom-features-grid {
@@ -1332,7 +1467,7 @@ a {
 }
 
 .bath-feature {
-  background: #ffffff;
+  background: #f5f5f7;
   padding: 32px;
   border-radius: 32px;
   text-align: center;
@@ -1380,6 +1515,23 @@ a {
   font-weight: 500;
 }
 
+#location {
+  background: #fff;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 410px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
+}
+
 /* Location - Beautiful Kungsholmen neighborhood */
 .location-section {
 }
@@ -1389,7 +1541,7 @@ a {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 32px;
-  min-height: 60vh;
+  height: 100%;
 }
 
 .street-image {
@@ -1455,6 +1607,22 @@ a {
   border-radius: 16px;
 }
 
+#rules {
+  background: #fff;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 440px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+
 /* House Rules - Simple and fair */
 .rules-bedroom {
   display: grid;
@@ -1495,6 +1663,39 @@ a {
   border-radius: 32px;
 }
 
+#contact {
+  background: #000;
+  border-radius: 32px;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 470px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
+}
+
+#book {
+  background: #fff;
+  border-radius: 32px;
+  border: 32px solid #fff;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 500px;
+  overflow: auto;
+  gap: 32px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
+}
+
 /* Call to Action - Ready to book? */
 .cta-buttons {
   display: flex;
@@ -1517,14 +1718,12 @@ a {
   font-weight: 600;
   margin-bottom: 32px;
   letter-spacing: -0.009em;
-  text-transform: uppercase;
 }
 
 .cta-text {
   font-size: 24px;
   font-weight: 300;
   margin-bottom: 48px;
-  text-transform: uppercase;
   letter-spacing: 0.2em;
 }
 
@@ -1582,6 +1781,11 @@ a {
   opacity: 0.8;
 }
 
+#inquiry {
+  position: relative;
+  z-index: 2;
+}
+
 /* Inquiry Form - Get in touch easily */
 .inquiry-form {
   background: #ffffff;
@@ -1609,13 +1813,22 @@ a {
 }
 
 .contact-form {
-  max-width: 600px;
+  max-width: 900px;              /* a bit wider for 2 cols */
   margin: 0 auto;
   text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
 }
 
 .form-group {
   margin-bottom: 32px;
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr;  /* 1 column */
+  }
 }
 
 .form-label,
@@ -1669,9 +1882,9 @@ legend.form-label {
 .radio-options,
 .checkbox-options {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
-  margin-top: 16px;
+  margin-top: 0;
 }
 
 .radio-option,
@@ -1687,7 +1900,7 @@ legend.form-label {
 
 .radio-option:hover,
 .checkbox-option:hover {
-  background: rgba(0, 113, 227, 0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .radio-option input,
@@ -1707,7 +1920,9 @@ legend.form-label {
 
 .form-actions {
   text-align: center;
-  margin-top: 48px;
+  margin-top: 0px;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .form-submit {
@@ -1898,10 +2113,6 @@ legend.form-label {
     font-size: 72px; /* Bigger titles on desktop - we have the space! */
   }
 
-  .bathroom-header h2 {
-    font-size: 48px;
-  }
-
   .cta-content h2 {
     font-size: 80px;
   }
@@ -1995,12 +2206,16 @@ legend.form-label {
   .kitchen-equipment h3 {
     font-size: 24px;
   }
-  
-  .equipment-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+
+  .typo-subtitle p {
+    font-size: 24px;
   }
   
+  .circle-btn {
+    bottom: -60px;
+    z-index: 1;
+  }
+
   .big-type h2 {
     font-size: 40px;
   }
@@ -2132,12 +2347,10 @@ legend.form-label {
   .kitchen-main,
   .kitchen-detail,
   .kitchen-equipment,
-  .kitchen-vibe,
   .workspace-features,
   .workspace-review,
   .patio-main,
   .workspace-main,
-  .workspace-detail,
   .workspace-extra,
   .outdoor-text,
   .patio-small,
@@ -2160,6 +2373,10 @@ legend.form-label {
   .final-cta,
   .inquiry-form {
     border-radius: 16px;
+  }
+
+  .fact-list {
+    gap: 16px;
   }
   
   .location-grid {
@@ -2189,7 +2406,7 @@ legend.form-label {
   
   .amenities-scattered {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
   }
   
   .amenity-item {
@@ -2215,10 +2432,6 @@ legend.form-label {
     margin-bottom: 24px;
   }
   
-  .equipment-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .outdoor-grid {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 220px);
@@ -2237,6 +2450,14 @@ legend.form-label {
     align-items: center;
   }
 
+  #amenities {
+    border: 16px solid #fff;
+  }
+
+  #host {
+    height: 66dvh;
+  }
+
   .host-profile {
     padding: 48px 16px;
   }
@@ -2245,6 +2466,11 @@ legend.form-label {
     grid-template-columns: 1fr;
     gap: 32px;
     text-align: center;
+  }
+
+  .host-image {
+    scale: 0.9;
+    transform: rotate(0deg) translateX(0px) translateY(-10px);
   }
   
   .host-image img {
@@ -2401,8 +2627,8 @@ legend.form-label {
   }
   
   .big-title {
-    padding: 48px 24px 32px;
-    margin-bottom: 32px;
+    padding: 24px 24px 8px;
+    margin-bottom: 0;
   }
   
   .typo-hero-title {
