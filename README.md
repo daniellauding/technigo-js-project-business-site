@@ -84,16 +84,6 @@ Started by gathering all the good stuff - photos of every corner, guest reviews 
 - **Responsive Form**: Fully responsive form that looks great 320px-1600px+
 - **Clean Code Practices**: Following best practices from research on modern form validation
 
-## What's next
-
-Still thinking about:
-- A proper booking form (maybe connect to a calendar?)
-- Form that actually sends emails  
-- Make it even smoother with transitions
-- Compress those images (they're huge right now)
-- Fix some icons that don't exist in Lucide (like refrigerator)
-- Maybe add a gallery viewer?
-
 ## If you want to run it
 
 Super simple:
