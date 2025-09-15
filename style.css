@@ -1,3 +1,56 @@
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Colors */
+  --color-primary: #1d1d1f;
+  --color-secondary: #6e6e73;
+  --color-muted: #86868b;
+  --color-background: #fbfbfd;
+  --color-white: #ffffff;
+  --color-light-gray: #f5f5f7;
+  --color-border: #e5e5e7;
+  --color-accent: #000000;
+  --color-gray-light: #eee;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-xxl: 64px;
+  --spacing-xxxl: 96px;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-xxl: 32px;
+  --radius-full: 50%;
+  
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --line-height: 1.47059;
+  
+  /* Z-index */
+  --z-header: 100;
+  --z-mobile-nav: 99;
+  --z-burger: 101;
+  --z-content: 1;
+  --z-background: -1;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Layout */
+  --max-width: 1400px;
+  --header-height: 112px;
+  --hero-height: 70vh;
+  --hero-min-height: 500px;
+}
+
 /* Reset & Base Styles */
 * {
   margin: 0;
@@ -10,10 +63,10 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.47059;
-  color: #1d1d1f;
-  background: #fbfbfd;
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  color: var(--color-primary);
+  background: var(--color-background);
   overflow-x: hidden;
   padding: 0 0;
   -webkit-font-smoothing: antialiased;
@@ -33,7 +86,7 @@ body::before {
   background: url(images/bg.jpg) no-repeat center top / cover;
   opacity: 0.6;
   filter: saturate(0.5);
-  z-index: -1;
+  z-index: var(--z-background);
 }
 
 img {
@@ -59,18 +112,18 @@ a {
 
 /* Typography - Clean hierarchy for readability */
 .typo-hero-title {
-  font-size: 48px;
+  font-size: var(--font-size-6xl);
   font-weight: 600;
   line-height: 1.0625;
   letter-spacing: -0.009em;
-  color: #1d1d1f;
+  color: var(--color-primary);
 }
 
 .typo-section-title {
-  font-size: 48px;
+  font-size: var(--font-size-6xl);
   font-weight: 600;
   letter-spacing: 0.011em;
-  color: #1d1d1f;
+  color: var(--color-primary);
 }
 
 .typo-subtitle {
@@ -105,10 +158,10 @@ a {
 }
 
 .typo-heading-large {
-  font-size: 40px;
+  font-size: var(--font-size-5xl);
   font-weight: 600;
   letter-spacing: 0.009em;
-  color: #1d1d1f;
+  color: var(--color-primary);
 }
 
 .circle-btn {
@@ -119,7 +172,7 @@ a {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #eee;
+  background: var(--color-gray-light);
   text-decoration: none;
   cursor: pointer;
   left: 50%;
@@ -158,7 +211,7 @@ a {
   font-size: 40px;
   font-weight: 600;
   letter-spacing: 0.007em;
-  color: #1d1d1f;
+  color: var(--color-primary);
 }
 
 .typo-heading-small {
@@ -247,18 +300,14 @@ a {
 }
 
 /* Header & Navigation - Sticky header with mobile menu */
-.nav-toggle {
-  display: none;
-}
-
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
-  padding: 16px 48px;
-  background: linear-gradient(0deg, rgb(251 251 253) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: var(--z-header);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  background: linear-gradient(0deg, var(--color-background) 0%, rgba(255, 255, 255, 0) 100%);
   backdrop-filter: blur(6px);
 }
 
@@ -304,15 +353,28 @@ a {
   height: 24px;
   justify-content: space-between;
   position: relative;
-  z-index: 101;
+  z-index: var(--z-burger);
 }
 
 .burger span {
   width: 100%;
   height: 3px;
-  background: #1d1d1f;
-  transition: all 0.3s ease;
+  background: var(--color-primary);
+  transition: all var(--transition-normal);
   display: block;
+}
+
+/* Burger animation states */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .mobile-nav {
@@ -321,44 +383,58 @@ a {
   right: -100%;
   width: 100%;
   height: 100vh;
-  background: #ffffff;
+  background: var(--color-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 64px;
-  transition: all 0.3s ease;
-  z-index: 99;
+  gap: var(--spacing-xxl);
+  transition: all var(--transition-normal);
+  z-index: var(--z-mobile-nav);
   box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+}
+
+.mobile-nav.active {
+  right: 0;
 }
 
 .mobile-nav a {
   font-size: 32px;
   letter-spacing: -0.01em;
   font-weight: 600;
-  transition: all 0.2s ease;
-  color: #1d1d1f;
+  transition: all var(--transition-fast);
+  color: var(--color-primary);
 }
 
 .mobile-nav a:hover {
   opacity: 0.7;
 }
 
-.nav-toggle:checked ~ .mobile-nav {
-  right: 0;
+/* Folder Layout System */
+.folder {
+  position: sticky;
+  z-index: 3;
+  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
+  overflow: auto;
+  height: 70vh;
+  min-height: 500px;
 }
 
-.nav-toggle:checked ~ .header .burger span:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
-}
-
-.nav-toggle:checked ~ .header .burger span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle:checked ~ .header .burger span:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
-}
+/* Folder positioning - each section gets its own top value */
+.folder#about { top: 110px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#rooms { top: 140px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#amenities { top: 170px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#greeting { top: 200px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#host { top: 230px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#kitchen { top: 260px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#workspace { top: 290px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#outdoor { top: 320px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#gems { top: 350px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#bathroom { top: 380px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#location { top: 410px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#rules { top: 440px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#contact { top: 470px; border-radius: var(--radius-xxl) var(--radius-xxl) 0 0; }
+.folder#book { top: 500px; border-radius: var(--radius-xxl); }
 
 /* Main Layout */
 .wrapper {
@@ -366,7 +442,7 @@ a {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: var(--spacing-xxl);
 }
 
 /* Main Layout */
@@ -538,16 +614,10 @@ a {
 }
 
 #about {
-  background: #fbfbfd;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-background);
+  border-radius: var(--radius-xxl) var(--radius-xxl) 0 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 2;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 110px;
-  height: 70vh;
-  min-height: 500px;
-  overflow: auto;
 }
 
 /* Grid Sections - Facts and quick info */
@@ -626,17 +696,10 @@ a {
 }
 
 #rooms {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  z-index: 3;
-  position: sticky;
-  top: 140px;
-  height: 70vh;
-  min-height: 500px;
-  overflow: auto;
 }
 
 /* Content Mix - Images with overlays and quotes */
@@ -808,15 +871,10 @@ a {
 }
 
 #amenities {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  z-index: 3;
-  position: sticky;
-  top: 170px;
-  overflow: auto;
 }
 
 /* Amenities - What makes this place special */
@@ -852,15 +910,9 @@ a {
 }
 
 #greeting {
-  background: #fbfbfd;
-  border-radius: 32px;
-  /* border: 32px solid #fff; */
+  background: var(--color-background);
+  border-radius: 0;
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  z-index: 3;
-  position: sticky;
-  top: 200px;
-  overflow: auto;
 }
 
 /* Big Type - Statement typography moments */
@@ -881,14 +933,10 @@ a {
 }
 
 #host {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 230px;
-  overflow: auto;
 }
 
 /* Host Profile - Personal connection with guests */
@@ -984,20 +1032,13 @@ a {
 }
 
 #kitchen {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 260px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
 }
 
 /* Kitchen - Heart of the apartment */
@@ -1110,20 +1151,13 @@ a {
 }
 
 #workspace {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 290px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
 }
 
 
@@ -1219,25 +1253,16 @@ a {
 }
 
 #outdoor {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 320px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
 }
 
 /* Outdoor - Summer vibes and fresh air */
-.outdoor-scattered {
-}
 
 .outdoor-grid {
   display: grid;
@@ -1299,20 +1324,14 @@ a {
 }
 
 #gems {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 350px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
+  overflow: hidden;;
 }
 
 /* Local Gems - Stockholm favorites from your host */
@@ -1360,25 +1379,16 @@ a {
 }
 
 #bathroom {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 380px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
 }
 
 /* Bathroom - Clean, modern, spotless */
-.bathroom-section {
-}
 
 .bathroom-grid {
   display: grid;
@@ -1516,25 +1526,16 @@ a {
 }
 
 #location {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 410px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
 }
 
 /* Location - Beautiful Kungsholmen neighborhood */
-.location-section {
-}
 
 .location-grid {
   display: grid;
@@ -1608,18 +1609,13 @@ a {
 }
 
 #rules {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 440px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
 }
 
 
@@ -1664,36 +1660,22 @@ a {
 }
 
 #contact {
-  background: #000;
-  border-radius: 32px;
+  background: var(--color-accent);
+  border-radius: 0;
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 470px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
 }
 
 #book {
-  background: #fff;
-  border-radius: 32px;
-  border: 32px solid #fff;
+  background: var(--color-white);
+  border-radius: 0;
+  border: var(--spacing-lg) solid var(--color-white);
   z-index: 3;
-  box-shadow: 0px -7px 12px 0px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 500px;
-  overflow: auto;
-  gap: 32px;
+  gap: var(--spacing-lg);
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  height: 70vh;
-  min-height: 500px;
 }
 
 /* Call to Action - Ready to book? */
@@ -2107,6 +2089,37 @@ legend.form-label {
   .desktop-nav a:hover {
     background: #dfdfe2;
     color: #1d1d1f;
+  }
+  
+  .folder-toggle {
+    margin-left: var(--spacing-sm);
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .folder-toggle:hover {
+    background: var(--color-accent);
+    transform: translateY(-1px);
+  }
+  
+  .folder-toggle.active {
+    background: var(--color-secondary);
+  }
+  
+  .folder-toggle [data-lucide] {
+    width: 16px;
+    height: 16px;
+    margin-right: 0;
   }
 
   .typo-hero-title {
@@ -2535,9 +2548,7 @@ legend.form-label {
     top: 90px;
   }
   
-  .facts-block {
-    /* padding: 0 0 16px; */
-  }
+  /* .facts-block padding removed for mobile optimization */
 
   .facts-block h2 {
     display: none;

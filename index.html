@@ -11,9 +11,6 @@
 </head>
 <body>
 
-  <!-- Hidden checkbox for mobile menu -->
-  <input id="nav-toggle" type="checkbox" class="nav-toggle" aria-label="Toggle navigation" />
-  
   <!-- Header with navigation -->
   <header class="header">
     <div class="header-content">
@@ -30,43 +27,47 @@
         <a href="#rooms">
           Rooms
         </a>
-        <a href="#local">
-          Local
+        <a href="#amenities">
+          Amenities
+        </a>
+        <a href="#location">
+          Location
         </a>
         <a href="#book">
           Book
         </a>
-        <a href="#inquiry">
-          Inquiry
-        </a>
+        <button class="folder-toggle active" id="folder-toggle" aria-label="Toggle folder layout">
+          <i data-lucide="folder"></i>
+          <span class="folder-toggle-text">Normal</span>
+        </button>
       </nav>
       <!-- Hamburger for mobile -->
-      <label for="nav-toggle" class="burger" aria-hidden="true">
+      <button class="burger" aria-label="Toggle navigation" id="burger-toggle">
         <span></span>
         <span></span>
         <span></span>
-      </label>
+      </button>
     </div>
   </header>
 
-  <!-- Mobile navigation -->
-  <nav class="mobile-nav">
-    <a href="#about">
-      About
-    </a>
-    <a href="#rooms">
-      Rooms
-    </a>
-    <a href="#local">
-      Local
-    </a>
-    <a href="#book">
-      Book
-    </a>
-    <a href="#inquiry">
-      Inquiry
-    </a>
-  </nav>
+    <!-- Mobile navigation -->
+    <nav class="mobile-nav">
+      <a href="#about">
+        About
+      </a>
+      <a href="#rooms">
+        Rooms
+      </a>
+      <a href="#amenities">
+        Amenities
+      </a>
+      <a href="#location">
+        Location
+      </a>
+      <a href="#book">
+        Book
+      </a>
+    </nav>
 
   <!-- Main content wrapper - semantic HTML structure -->
   <main class="wrapper">
@@ -98,7 +99,7 @@
         <div class="hero-image">
           <img src="images/hero.png" alt="Stockholm apartment hero view" />
           <div class="hero-overlay">
-            <a href="#inquiry" class="hero-tag">
+            <a href="#contact" class="hero-tag">
               <i data-lucide="check-circle"></i>
               Available on request</a>
             <div class="hero-text">
@@ -116,7 +117,7 @@
 
     <!-- Property overview - key facts with entrance image -->
     <div class="container">
-      <div id="about">
+      <div id="about" class="folder">
         <div class="grid-section">
           <div class="image-large">
             <img src="images/entrance.png" alt="Apartment entrance" />
@@ -152,7 +153,7 @@
       </div>
 
       <!-- Social proof section - bedroom showcase with guest reviews -->
-      <div id="rooms">
+      <div id="rooms" class="folder">
         <div class="content-mix">
           <div class="room-feature">
             <img src="images/bed-1.png" alt="Bedroom" />
@@ -246,7 +247,7 @@
       </div>
 
       <!-- Key amenities overview - kitchen, workspace, entertainment -->
-      <div id="amenities">
+      <div id="amenities" class="folder">
         <div class="amenities-scattered">
           <div class="amenity-item kitchen">
             <span class="amenity-icon">
@@ -280,7 +281,7 @@
       </div>
 
       <!-- Big typography section -->
-      <div id="greeting">
+      <div id="greeting" class="folder">
         <section class="big-type">
           <h2>
             Feel at home
@@ -288,7 +289,7 @@
         </section>
       </div>
 
-      <div id="host">
+      <div id="host" class="folder">
         <!-- About the host - building trust and personal connection -->
         <div class="host-profile">
           <div class="host-content">
@@ -322,7 +323,7 @@
       </div>
 
       <!-- Kitchen Section - my favorite room in the apartment -->
-      <div id="kitchen">
+      <div id="kitchen" class="folder">
         <div class="kitchen-header section-header">
           <h2>
             Culinary playground
@@ -416,7 +417,7 @@
       </div>
 
       <!-- Big workspace section -->
-      <div id="workspace">
+      <div id="workspace" class="folder">
         <div class="workspace-header section-header">
           <h2>
             Remote work ready
@@ -492,7 +493,7 @@
       </div>
       <!-- Scattered outdoor images with ALL patio images -->
 
-      <div id="outdoor">
+      <div id="outdoor" class="folder">
 
         <div class="outdoor-header section-header">
           <h2>
@@ -525,7 +526,7 @@
 
       <!-- Local Gems -->
 
-      <div id="gems">
+      <div id="gems" class="folder">
 
         <div class="gems-header section-header">
           <h2>
@@ -786,7 +787,7 @@
 
       </div>
 
-      <div id="bathroom">
+      <div id="bathroom" class="folder">
 
         <!-- Bathroom section -->
         <div class="bathroom-header section-header">
@@ -864,7 +865,7 @@
 
       </div>
 
-      <div id="location">
+      <div id="location" class="folder">
 
         <!-- Location section with street view -->
         <div class="location-header section-header">
@@ -921,7 +922,7 @@
 
       </div>
 
-      <div id="rules">
+      <div id="rules" class="folder">
         
         <!-- House rules mixed with final bedroom image -->
         <div class="rules-bedroom">
@@ -965,7 +966,7 @@
 
       </div>
 
-      <div id="contact">
+      <div id="contact" class="folder">
 
         <!-- Big final call to action -->
         <section class="final-cta">
@@ -998,7 +999,7 @@
 
       </div>
 
-      <div id="book">
+      <div id="book" class="folder">
  
         <!-- Inquiry form section -->
         <section class="inquiry-form" id="inquiry">
@@ -1153,6 +1154,52 @@
   <script>
     // Initialize Lucide icons
     lucide.createIcons();
+    
+    // Mobile navigation toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const burgerToggle = document.getElementById('burger-toggle');
+      const mobileNav = document.querySelector('.mobile-nav');
+      const folderToggle = document.getElementById('folder-toggle');
+      
+      // Mobile navigation
+      burgerToggle.addEventListener('click', function() {
+        // Toggle active class on burger
+        burgerToggle.classList.toggle('active');
+        // Toggle active class on mobile nav
+        mobileNav.classList.toggle('active');
+      });
+      
+      // Close mobile nav when clicking on a link
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          burgerToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+        });
+      });
+      
+      // Folder layout toggle
+      folderToggle.addEventListener('click', function() {
+        const folderSections = document.querySelectorAll('.folder');
+        const isActive = folderToggle.classList.contains('active');
+        
+        if (isActive) {
+          // Remove folder layout
+          folderSections.forEach(section => {
+            section.classList.remove('folder');
+          });
+          folderToggle.classList.remove('active');
+          folderToggle.querySelector('.folder-toggle-text').textContent = 'Folder';
+        } else {
+          // Add folder layout
+          folderSections.forEach(section => {
+            section.classList.add('folder');
+          });
+          folderToggle.classList.add('active');
+          folderToggle.querySelector('.folder-toggle-text').textContent = 'Normal';
+        }
+      });
+    });
   </script>
 </body>
 </html>

@@ -18,6 +18,9 @@ Trying to capture that minimal Swedish aesthetic mixed with Apple's clean style.
 - Lucide icons (great icon library btw)
 - SF Pro font stack (that clean Apple system font look)
 - CSS Grid & Flexbox for layouts
+- CSS Custom Properties (variables) for maintainable styling
+- Folder layout system for sticky positioning
+- JavaScript for mobile navigation (no more CSS checkbox hacks!)
 - Pixel-based sizing for precise control
 - Some cool CSS animations (reviews auto-scroll, carousel moves)
 
@@ -105,30 +108,25 @@ The Apple style update really made a difference - those subtle grays (#86868b fo
 
 Had some fun with the CSS - that review slider took forever to get right (4 seconds per review, 6 reviews total). The carousel is infinite scroll which is pretty satisfying.
 
-## Changes Made (Week 3)
+## Recent Improvements
 
-**HTML Improvements:**
-- Added semantic inquiry form section after final CTA
-- Used proper form elements: `<fieldset>`, `<legend>`, `<label>`, `<input>`, `<textarea>`
-- Added `autocomplete` attributes for better UX
-- Used `novalidate` to handle custom validation
-- Added semantic HTML comments throughout
+**Code Architecture:**
+- Implemented CSS custom properties (variables) for maintainable styling
+- Created folder layout system with toggle functionality
+- Refactored mobile navigation to use JavaScript instead of CSS checkbox hacks
+- Organized CSS with clear variable system for colors, spacing, and transitions
 
-**CSS Optimization:**  
-- Applied DRY principles - consolidated similar section styles
-- Reduced mobile vertical spacing
-- Created unified form styling system
-- Added focus states with blue accent color
-- Improved mobile responsiveness (form scales to 100% width)
-- Organized CSS with clear section headers
+**Navigation & UX:**
+- Updated navigation links to match actual page sections
+- Added folder layout toggle button in header
+- Improved mobile navigation with proper JavaScript event handling
+- Fixed all broken internal links and navigation flow
 
-**Form Features:**
-- Name and email validation (required fields)
-- Guest count selection (radio buttons)  
-- Interest checkboxes (short stay, extended stay, purchase)
-- Message textarea with placeholder guidance
-- Responsive submit button with hover effects
-- Posts structured data to HTTPbin for testing
+**Technical Improvements:**
+- Cleaned up CSS variables and removed unused properties
+- Improved code organization and readability
+- Enhanced mobile responsiveness
+- Better semantic HTML structure with proper section linking
 
 **Clean Code Practices:**
 - Meaningful CSS class names (`.inquiry-form`, `.form-group`)
@@ -137,7 +135,37 @@ Had some fun with the CSS - that review slider took forever to get right (4 seco
 - Clear section organization
 - Semantic HTML structure
 
+## Major Refactoring (Latest Update)
+
+**CSS Variables System:**
+- Added comprehensive CSS custom properties for colors, spacing, typography, z-index, and transitions
+- Centralized all design tokens in `:root` for easy maintenance
+- Consistent color palette: `--color-primary`, `--color-secondary`, `--color-muted`, etc.
+- Standardized spacing scale: `--spacing-xs` through `--spacing-xxxl`
+- Unified border radius system: `--radius-sm` through `--radius-full`
+
+**Folder Layout System:**
+- Created `.folder` class for all sticky positioned sections
+- Each section gets unique top positioning: `.folder#about { top: 110px; }`
+- Eliminated repetitive sticky positioning code
+- Easy to toggle folder layout on/off with a single class
+- Clean separation of layout concerns
+
+**JavaScript Navigation:**
+- Replaced CSS checkbox hack with proper JavaScript toggle
+- Added `burger-toggle` button with click event listener
+- Mobile nav now uses `.active` class for show/hide
+- Auto-closes navigation when clicking links
+- More accessible and maintainable approach
+
+**Code Quality Improvements:**
+- Removed empty CSS rulesets
+- Consolidated similar styles using variables
+- Better semantic HTML structure
+- Cleaner separation of concerns
+- More maintainable codebase
+
 ---
 
 Built in Lund with lots of coffee ☕  
-Updated September 2025 with Week 3 progress
+Updated September 2025 with folder layout system and code refactoring
